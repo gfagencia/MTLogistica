@@ -1,0 +1,12 @@
+.chrome-debug/
+.agents/
+.impeccable/
+*.tmp
+.tmp-*.png
+skills-lock.json
+verify-scroll.mjs
+node_modules/
+dist/
+build/
+.DS_Store
+Thumbs.db

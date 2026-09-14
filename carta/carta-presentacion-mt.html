@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carta de Presentacion - Logistica MT</title>
+  <style>
+    :root {
+      --black: #030503;
+      --panel: rgba(16, 21, 17, .86);
+      --line: rgba(204, 255, 210, .18);
+      --white: #f7fff7;
+      --muted: #a9b5aa;
+      --green: #38d430;
+      --green-2: #8aff6f;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 82% 10%, rgba(56, 212, 48, .22), transparent 28rem),
+        linear-gradient(180deg, #060806, #020302);
+      line-height: 1.55;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 42px 42px;
+      opacity: .45;
+    }
+
+    .page {
+      position: relative;
+      width: min(1040px, 100%);
+      margin: 0 auto;
+      min-height: 100vh;
+      padding: 34px;
+    }
+
+    .cover {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 32px;
+      align-items: stretch;
+      min-height: 520px;
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      background:
+        linear-gradient(90deg, rgba(3, 5, 3, .94), rgba(3, 5, 3, .48)),
+        url("../Logo MT.jpeg") right center/auto 118% no-repeat;
+      overflow: hidden;
+      box-shadow: 0 28px 90px rgba(0, 0, 0, .55);
+    }
+
+    .cover::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent, rgba(3,5,3,.72));
+      pointer-events: none;
+    }
+
+    .cover-content,
+    .cover-card {
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo {
+      width: 96px;
+      height: 96px;
+      object-fit: cover;
+      border: 1px solid rgba(138, 255, 111, .38);
+      border-radius: 22px;
+      box-shadow: 0 0 34px rgba(56, 212, 48, .34);
+    }
+
+    .eyebrow {
+      margin: 28px 0 12px;
+      color: var(--green-2);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 600px;
+      margin-bottom: 16px;
+      font-size: 64px;
+      line-height: .98;
+      letter-spacing: 0;
+    }
+
+    .slogan {
+      color: var(--green-2);
+      font-size: 22px;
+      font-weight: 900;
+      margin-bottom: 22px;
+    }
+
+    .lead {
+      max-width: 560px;
+      color: #d9e4d8;
+      font-size: 18px;
+    }
+
+    .cover-card {
+      align-self: end;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.05));
+      backdrop-filter: blur(22px);
+    }
+
+    .cover-card strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 32px;
+      line-height: 1.05;
+    }
+
+    .cover-card p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .content {
+      display: grid;
+      gap: 18px;
+      padding: 28px 0 10px;
+    }
+
+    section {
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--panel);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, .25);
+    }
+
+    h2 {
+      color: var(--white);
+      font-size: 30px;
+      line-height: 1.08;
+      margin-bottom: 14px;
+    }
+
+    h2::before {
+      content: "";
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-right: 10px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 18px var(--green);
+      vertical-align: middle;
+    }
+
+    h3 {
+      color: var(--green-2);
+      font-size: 18px;
+      margin-bottom: 7px;
+    }
+
+    p {
+      color: #d4ded3;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .card {
+      min-height: 150px;
+      padding: 18px;
+      border: 1px solid rgba(204, 255, 210, .14);
+      border-radius: 22px;
+      background: rgba(0, 0, 0, .24);
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      counter-reset: step;
+    }
+
+    .map-strip {
+      position: relative;
+      height: 220px;
+      margin: 8px 0 18px;
+      border: 1px solid rgba(204, 255, 210, .16);
+      border-radius: 24px;
+      overflow: hidden;
+      background: #030503;
+    }
+
+    .map-strip::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(3,5,3,.86), rgba(3,5,3,.35), rgba(3,5,3,.72));
+    }
+
+    .map-strip img {
+      position: absolute;
+      inset: -8%;
+      width: 116%;
+      height: 116%;
+      object-fit: cover;
+      filter: saturate(1.15) contrast(1.08) brightness(.58);
+    }
+
+    .map-strip svg {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+    }
+
+    .map-strip path {
+      fill: none;
+      stroke: var(--green);
+      stroke-width: 7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      filter: drop-shadow(0 0 14px rgba(56, 212, 48, .85));
+    }
+
+    .map-strip circle {
+      fill: var(--green-2);
+      filter: drop-shadow(0 0 12px rgba(56, 212, 48, .9));
+    }
+
+    .step {
+      min-height: 145px;
+      padding: 14px;
+      border: 1px solid rgba(204, 255, 210, .14);
+      border-radius: 20px;
+      background: rgba(0, 0, 0, .26);
+      counter-increment: step;
+    }
+
+    .step::before {
+      content: counter(step);
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      margin-bottom: 10px;
+      border-radius: 50%;
+      background: var(--green);
+      color: #031003;
+      font-weight: 900;
+    }
+
+    .step strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .step span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px 18px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .benefits li {
+      position: relative;
+      padding-left: 20px;
+      color: #d4ded3;
+    }
+
+    .benefits li::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 0;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    .cta {
+      background:
+        linear-gradient(135deg, rgba(56, 212, 48, .18), rgba(255,255,255,.04)),
+        rgba(16, 21, 17, .9);
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .contact div {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(0,0,0,.25);
+      color: var(--muted);
+    }
+
+    .contact strong {
+      display: block;
+      color: var(--green-2);
+      margin-bottom: 4px;
+    }
+
+    @media print {
+      body {
+        background: #030503;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .page {
+        width: 100%;
+        padding: 18px;
+      }
+
+      section,
+      .cover {
+        break-inside: avoid;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .page { padding: 16px; }
+      .cover, .grid, .steps, .benefits, .contact {
+        grid-template-columns: 1fr;
+      }
+
+      .cover {
+        min-height: auto;
+        padding: 22px;
+        background:
+          linear-gradient(180deg, rgba(3, 5, 3, .82), rgba(3, 5, 3, .95)),
+          url("../Logo MT.jpeg") center top/cover no-repeat;
+      }
+
+      h1 { font-size: 42px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="cover">
+      <div class="cover-content">
+        <img class="logo" src="../Logo MT.jpeg" alt="Logo Logistica MT">
+        <p class="eyebrow">Carta de presentacion</p>
+        <h1>Logistica MT</h1>
+        <p class="slogan">Conectando soluciones, asegurando tus envios.</p>
+        <p class="lead">Mensajeria integral, motos, autos y mini-fletes para comercios, empresas y vendedores de CABA y GBA.</p>
+      </div>
+      <div class="cover-card">
+        <strong>Tu operacion, en movimiento.</strong>
+        <p>Retiros programados, entregas en el dia, cobertura CABA/GBA y coordinacion directa por WhatsApp.</p>
+      </div>
+    </header>
+
+    <div class="content">
+      <section>
+        <h2>Tu socio estrategico en logistica</h2>
+        <p class="lead">En Logistica MT trabajamos para que cada envio llegue en tiempo y forma, cuidando la experiencia de tu cliente como si fuera parte de nuestra propia operacion.</p>
+        <p>Somos una empresa dedicada al servicio integral de mensajeria con motos, autos y mini-fletes. Nuestro servicio combina coordinacion directa, rutas eficientes y una metodologia pensada para adaptarse al volumen, zona y urgencia de cada cliente.</p>
+      </section>
+
+      <section>
+        <h2>Servicios</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>Envios Flex y ultima milla</h3>
+            <p>Retiros y entregas rapidas para e-commerce, Mercado Envios Flex, tiendas online y empresas.</p>
+          </article>
+          <article class="card">
+            <h3>Mensajeria en moto</h3>
+            <p>Tramites, documentacion y paquetes chicos con rapidez para recorridos urbanos.</p>
+          </article>
+          <article class="card">
+            <h3>Autos para paqueteria</h3>
+            <p>Traslados de paquetes medianos, compras y reposiciones que requieren mayor resguardo.</p>
+          </article>
+          <article class="card">
+            <h3>Mini-fletes</h3>
+            <p>Movimientos de cajas, bultos y pedidos voluminosos con coordinacion por franja y destino.</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2>Metodologia de trabajo</h2>
+        <div class="map-strip">
+          <img src="../Fondo del logo.jpg" alt="">
+          <svg viewBox="0 0 1000 280" aria-hidden="true">
+            <path d="M70 220 C180 160 235 120 340 135 C455 152 480 65 600 84 C720 103 760 190 925 72"></path>
+            <circle cx="70" cy="220" r="11"></circle>
+            <circle cx="600" cy="84" r="11"></circle>
+            <circle cx="925" cy="72" r="11"></circle>
+          </svg>
+        </div>
+        <div class="steps">
+          <div class="step"><strong>Relevamiento</strong><span>Conocemos zonas, volumen y necesidades.</span></div>
+          <div class="step"><strong>Retiro</strong><span>Coordinamos el punto y la franja horaria.</span></div>
+          <div class="step"><strong>Planificacion</strong><span>Optimizamos recorridos y prioridades.</span></div>
+          <div class="step"><strong>Seguimiento</strong><span>Mantenemos visibilidad ante novedades.</span></div>
+          <div class="step"><strong>Entrega</strong><span>Cuidamos tiempos, trato y estado del paquete.</span></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Ventajas competitivas</h2>
+        <ul class="benefits">
+          <li><strong>Entregas en el dia:</strong> velocidad para responder a las expectativas actuales de compra.</li>
+          <li><strong>Atencion personalizada:</strong> contacto directo para resolver consultas y coordinar operaciones.</li>
+          <li><strong>Cobertura CABA y GBA:</strong> rutas adaptadas a zonas y necesidades comerciales.</li>
+          <li><strong>Trazabilidad operativa:</strong> seguimiento del estado de los envios durante el proceso.</li>
+          <li><strong>Responsabilidad y seguridad:</strong> cuidado de la mercaderia desde el retiro hasta la entrega.</li>
+          <li><strong>Precio-beneficio:</strong> propuestas pensadas para que la logistica sea un activo del negocio.</li>
+        </ul>
+      </section>
+
+      <section class="cta">
+        <h2>Una solucion para hacer crecer tu negocio</h2>
+        <p>Representamos tu marca frente al cliente final, por eso cuidamos cada detalle: tiempos, comunicacion, estado del paquete y resolucion ante imprevistos.</p>
+      </section>
+
+      <section class="contact">
+        <div>
+          <strong>Email</strong>
+          contacto@logisticamt.com
+        </div>
+        <div>
+          <strong>WhatsApp</strong>
+          +54 11 2493-4095
+        </div>
+        <div>
+          <strong>Instagram</strong>
+          @logiistica
+        </div>
+        <div>
+          <strong>Propuesta</strong>
+          Cotizacion a medida
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
