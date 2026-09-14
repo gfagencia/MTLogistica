@@ -509,7 +509,7 @@ h3 {
   display: grid;
   grid-template-columns: minmax(300px, .78fr) minmax(0, 1.22fr);
   gap: clamp(24px, 5vw, 62px);
-  align-items: center;
+  align-items: stretch;
   min-height: calc(100vh - 76px);
   padding: clamp(24px, 4vw, 48px) clamp(18px, 6vw, 76px);
   overflow: hidden;
@@ -518,6 +518,9 @@ h3 {
 .cinema-copy {
   position: relative;
   z-index: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   max-width: 520px;
   min-width: 0;
 }
