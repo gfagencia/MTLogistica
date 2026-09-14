@@ -797,80 +797,6 @@ h3 {
   fill: var(--green);
 }
 
-.delivery-bike {
-  position: absolute;
-  left: 52%;
-  top: 56%;
-  z-index: 7;
-  width: 78px;
-  height: 48px;
-  offset-path: path("M88 520 C190 438 228 334 342 330 C470 324 480 205 610 226 C740 247 743 392 854 362 C962 333 968 192 1030 128");
-  offset-distance: 0%;
-  transform: translate(-50%, -50%);
-  filter: drop-shadow(0 0 20px rgba(56,212,48,.86));
-  opacity: 1;
-}
-
-@keyframes bikeDispatch {
-  0% { offset-distance: 0%; opacity: 0; }
-  8% { opacity: 1; }
-  100% { offset-distance: 100%; opacity: 1; }
-}
-
-.bike-frame {
-  position: absolute;
-  left: 14px;
-  top: 12px;
-  width: 44px;
-  height: 15px;
-  border-radius: 16px 24px 14px 12px;
-  background: var(--green-2);
-}
-
-.bike-frame::before {
-  content: "";
-  position: absolute;
-  right: 8px;
-  top: -12px;
-  width: 16px;
-  height: 14px;
-  border-radius: 10px 10px 4px 4px;
-  background: var(--white);
-}
-
-.bike-pack {
-  position: absolute;
-  left: 4px;
-  top: 5px;
-  width: 20px;
-  height: 18px;
-  border-radius: 5px;
-  background: linear-gradient(180deg, #b98645, #795225);
-  border: 1px solid rgba(255,255,255,.28);
-}
-
-.bike-wheel {
-  position: absolute;
-  bottom: 3px;
-  width: 18px;
-  height: 18px;
-  border: 3px solid var(--white);
-  border-radius: 50%;
-  background: rgba(0,0,0,.55);
-  animation: wheelSpin .45s linear infinite;
-}
-
-.bike-wheel::after {
-  content: "";
-  position: absolute;
-  inset: 4px;
-  border-top: 2px solid var(--green);
-  transform: rotate(45deg);
-}
-
-.small-a { left: 8px; }
-.small-b { right: 9px; }
-
 .delivery-card {
   position: absolute;
   z-index: 8;
@@ -957,7 +883,6 @@ h3 {
 .motion-ready .van,
 .motion-ready .door,
 .motion-ready .cargo,
-.motion-ready .delivery-bike,
 .motion-ready .delivery-card {
   animation: none;
 }
@@ -1340,7 +1265,6 @@ h3 {
     stroke-dashoffset: 0;
   }
 
-  .delivery-bike,
   .delivery-card,
   .cargo {
     opacity: 1;

@@ -14,7 +14,6 @@
   const door = document.querySelector(".door");
   const parcels = document.querySelectorAll(".parcel");
   const cargoItems = document.querySelectorAll(".cargo");
-  const deliveryBike = document.querySelector(".delivery-bike");
   const deliveryCards = document.querySelectorAll(".delivery-card");
   const checkpoints = document.querySelectorAll(".cinema-checkpoints article");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -86,7 +85,6 @@
     const progress = clamp(-rect.top / travel, 0, 1);
     const load = easeInOut(segment(progress, 0.05, 0.28));
     const drive = easeInOut(segment(progress, 0.16, 0.78));
-    const bike = easeInOut(segment(progress, 0.48, 0.92));
     const route = segment(progress, 0.14, 0.86);
     const active = Math.min(3, Math.floor(progress * 4.15));
 
@@ -122,11 +120,6 @@
       item.style.opacity = `${local}`;
       item.style.transform = `translate3d(0, ${(1 - local) * 20}px, 0) scale(${0.95 + local * 0.05})`;
     });
-
-    if (deliveryBike) {
-      deliveryBike.style.opacity = `${segment(progress, 0.44, 0.5)}`;
-      deliveryBike.style.offsetDistance = `${bike * 100}%`;
-    }
 
     deliveryCards.forEach((card, index) => {
       const starts = [0.02, 0.34, 0.66];
