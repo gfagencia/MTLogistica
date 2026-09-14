@@ -1127,6 +1127,19 @@ h3 {
   font-weight: 900;
 }
 
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  fill: currentColor;
+}
+
 .form {
   display: grid;
   grid-template-columns: 1fr 1fr;
