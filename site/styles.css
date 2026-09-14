@@ -495,8 +495,8 @@ h3 {
 .operation-cinema {
   position: relative;
   overflow: hidden;
-  height: 190vh;
-  min-height: 1180px;
+  height: 150vh;
+  min-height: 940px;
   background:
     linear-gradient(180deg, rgba(3,5,3,.86), rgba(56,212,48,.07) 26%, rgba(3,5,3,.82) 76%),
     url("assets/Fondo del logo.jpg") center/cover fixed,
@@ -592,7 +592,6 @@ h3 {
   overflow: hidden;
   background: #050805;
   box-shadow: 0 36px 120px rgba(0,0,0,.62);
-  transform: perspective(1200px) rotateX(2deg) rotateY(-4deg);
 }
 
 .logistics-stage::before {
@@ -773,20 +772,6 @@ h3 {
 
 .van-seat {
   fill: #0a120a;
-}
-
-.van-neck {
-  stroke: var(--green);
-  stroke-width: 12;
-  stroke-linecap: round;
-  fill: none;
-}
-
-.van-handlebar {
-  stroke: #f7fff7;
-  stroke-width: 8;
-  stroke-linecap: round;
-  fill: none;
 }
 
 .van-window {
