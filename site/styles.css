@@ -779,10 +779,22 @@ h3 {
   opacity: .92;
 }
 
+.van-rider {
+  fill: #0e2b14;
+}
+
+.van-face {
+  fill: #e8b98d;
+}
+
 .cargo {
   fill: url(#cargoGrad);
   stroke: rgba(255, 255, 255, .3);
   opacity: 1;
+}
+
+.cargo-strap {
+  fill: rgba(255, 255, 255, .3);
 }
 
 .wheel-shape {
