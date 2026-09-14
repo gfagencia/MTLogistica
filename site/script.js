@@ -175,16 +175,6 @@
     );
   }
 
-  function openInNewTab(url) {
-    const link = document.createElement("a");
-    link.href = url;
-    link.target = "_blank";
-    link.rel = "noopener";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  }
-
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     const payload = buildLeadPayload();
@@ -194,7 +184,7 @@
     status.className = "form-status ok";
     status.textContent = "Te llevamos a WhatsApp y te abrimos la carta de presentacion.";
     form.reset();
-    openInNewTab("carta/carta-presentacion-mt.html");
-    openInNewTab(`https://wa.me/${phone}?text=${text}`);
+    window.open("carta/carta-presentacion-mt.html", "_blank", "noopener");
+    window.location.href = `https://wa.me/${phone}?text=${text}`;
   });
 })();
