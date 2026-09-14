@@ -5,7 +5,6 @@
   const modal = document.getElementById("quoteModal");
   const form = document.getElementById("leadForm");
   const status = document.getElementById("formStatus");
-  const emailLinks = document.querySelectorAll("[data-company-email]");
   const whatsappLinks = document.querySelectorAll("[data-company-whatsapp]");
   const revealItems = document.querySelectorAll(".reveal");
   const story = document.querySelector(".operation-cinema");
@@ -20,11 +19,6 @@
   const checkpoints = document.querySelectorAll(".cinema-checkpoints article");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let ticking = false;
-
-  emailLinks.forEach((link) => {
-    link.textContent = config.companyEmail || "contacto@logisticamt.com";
-    link.href = `mailto:${config.companyEmail || "contacto@logisticamt.com"}`;
-  });
 
   whatsappLinks.forEach((link) => {
     const phone = config.companyWhatsapp || "5491124934095";
@@ -135,9 +129,9 @@
     }
 
     deliveryCards.forEach((card, index) => {
-      const starts = [0.06, 0.42, 0.72];
-      const local = segment(progress, starts[index], starts[index] + 0.18);
-      card.style.opacity = `${local > 0 && local < 1 ? 1 : index === 0 && progress < 0.22 ? 1 : index === 2 && progress > 0.78 ? 1 : 0.28}`;
+      const starts = [0.02, 0.34, 0.66];
+      const local = segment(progress, starts[index], starts[index] + 0.32);
+      card.style.opacity = `${local > 0 && local < 1 ? 1 : index === 0 && progress < 0.34 ? 1 : index === 2 && progress > 0.66 ? 1 : 0.55}`;
       card.style.transform = `translate3d(0, ${(1 - local) * 18}px, 0) scale(${0.96 + local * 0.04})`;
     });
 
@@ -165,56 +159,31 @@
       correo: data.get("correo") || "",
       telefono: data.get("telefono") || "",
       servicio: data.get("servicio") || "",
-      mensaje: data.get("mensaje") || "",
-      presentationUrl: config.presentationUrl || "../carta/carta-presentacion-mt.html",
-      companyEmail: config.companyEmail || "contacto@logisticamt.com",
-      source: window.location.href
+      mensaje: data.get("mensaje") || ""
     };
   }
 
-  function fallbackMail(payload) {
-    const subject = encodeURIComponent(`Consulta Logistica MT - ${payload.nombre}`);
-    const body = encodeURIComponent(
-      `Nueva consulta desde la web:\n\n` +
+  function buildWhatsappMessage(payload) {
+    return (
+      `Hola! Quiero cotizar un envio.\n\n` +
       `Nombre: ${payload.nombre}\n` +
       `Empresa: ${payload.empresa}\n` +
       `Correo: ${payload.correo}\n` +
       `Telefono: ${payload.telefono}\n` +
       `Servicio: ${payload.servicio}\n` +
-      `Mensaje: ${payload.mensaje}\n\n` +
-      `Enviar carta de presentacion: ${payload.presentationUrl}`
+      `Mensaje: ${payload.mensaje}`
     );
-    window.location.href = `mailto:${payload.companyEmail}?subject=${subject}&body=${body}`;
   }
 
-  form.addEventListener("submit", async (event) => {
+  form.addEventListener("submit", (event) => {
     event.preventDefault();
     const payload = buildLeadPayload();
-    status.className = "form-status";
-    status.textContent = "Enviando consulta...";
+    const phone = config.companyWhatsapp || "5491124934095";
+    const text = encodeURIComponent(buildWhatsappMessage(payload));
 
-    if (!config.appsScriptUrl) {
-      status.className = "form-status error";
-      status.textContent = "Falta configurar la URL de automatizacion. Se abrira tu correo para enviar la consulta.";
-      fallbackMail(payload);
-      return;
-    }
-
-    try {
-      await fetch(config.appsScriptUrl, {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify(payload)
-      });
-
-      form.reset();
-      status.className = "form-status ok";
-      status.textContent = "Consulta enviada. Ya recibis la carta de presentacion en tu correo.";
-    } catch (error) {
-      status.className = "form-status error";
-      status.textContent = "No pudimos completar el envio automatico. Se abrira tu correo para enviar la consulta.";
-      fallbackMail(payload);
-    }
+    status.className = "form-status ok";
+    status.textContent = "Te llevamos a WhatsApp para enviar tu consulta.";
+    form.reset();
+    window.open(`https://wa.me/${phone}?text=${text}`, "_blank", "noopener");
   });
 })();

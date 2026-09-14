@@ -113,18 +113,36 @@
           </div>
 
           <div class="van courier-moto" aria-hidden="true">
-            <div class="van-cabin"></div>
-            <div class="van-box">
-              <span class="cargo cargo-a"></span>
-              <span class="cargo cargo-b"></span>
-              <span class="cargo cargo-c"></span>
-              <span class="cargo cargo-d"></span>
-              <span class="cargo cargo-e"></span>
-              <span class="cargo cargo-f"></span>
-            </div>
-            <span class="door"></span>
-            <span class="wheel wheel-a"></span>
-            <span class="wheel wheel-b"></span>
+            <svg class="van-svg" viewBox="0 0 240 140" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="vanBoxGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#eff8ef"/>
+                  <stop offset="100%" stop-color="#aebbab"/>
+                </linearGradient>
+                <linearGradient id="vanCabinGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#8aff6f"/>
+                  <stop offset="100%" stop-color="#38d430"/>
+                </linearGradient>
+                <linearGradient id="cargoGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#b98645"/>
+                  <stop offset="100%" stop-color="#795225"/>
+                </linearGradient>
+              </defs>
+
+              <rect class="van-box-shape" x="14" y="28" width="146" height="76" rx="16"/>
+
+              <rect class="cargo cargo-a" x="26" y="42" width="30" height="24" rx="4"/>
+              <rect class="cargo cargo-b" x="62" y="42" width="30" height="24" rx="4"/>
+              <rect class="cargo cargo-c" x="44" y="70" width="30" height="24" rx="4"/>
+
+              <path class="van-cabin-shape" d="M160 104 L160 58 Q160 42 176 42 L198 42 Q210 42 214 54 L222 80 Q226 104 206 104 Z"/>
+              <rect class="van-window" x="176" y="50" width="30" height="22" rx="5"/>
+
+              <circle class="wheel-shape" cx="60" cy="108" r="17"/>
+              <circle class="wheel-shape" cx="196" cy="108" r="17"/>
+              <circle class="wheel-accent" cx="60" cy="108" r="6"/>
+              <circle class="wheel-accent" cx="196" cy="108" r="6"/>
+            </svg>
           </div>
 
           <div class="delivery-bike" aria-hidden="true">
@@ -243,9 +261,8 @@
     <section class="section contact reveal" id="contacto">
       <div>
         <h2>Solicita una cotizacion a medida</h2>
-        <p>Completa el formulario y automaticamente te enviamos la carta de presentacion. A la vez, Logistica MT recibe el aviso para preparar una propuesta segun tu operacion.</p>
+        <p>Completa el formulario y te llevamos directo a WhatsApp con tu consulta ya cargada para coordinar la cotizacion.</p>
         <div class="contact-list">
-          <a data-company-email href="mailto:contacto@logisticamt.com">contacto@logisticamt.com</a>
           <a data-company-whatsapp href="https://wa.me/5491124934095">WhatsApp 11 2493 4095</a>
           <a href="https://www.instagram.com/logiistica" target="_blank" rel="noreferrer">@logiistica</a>
           <span>Lunes a Sabado</span>
@@ -290,7 +307,7 @@
     <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <button class="modal-close" type="button" data-close-form aria-label="Cerrar">x</button>
       <h2 id="modalTitle">Cotizar envio</h2>
-      <p>Dejanos tus datos y te enviamos la carta de presentacion automaticamente.</p>
+      <p>Dejanos tus datos y te llevamos directo a WhatsApp para coordinar tu cotizacion.</p>
       <a class="btn btn-primary" href="#contacto" data-close-form>Completar formulario</a>
     </div>
   </div>

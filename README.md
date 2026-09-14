@@ -8,8 +8,6 @@ Entrega inicial del proyecto:
 - `site/config.js`: datos editables de contacto e integracion.
 - `carta/carta-presentacion-mt.md`: carta comercial editable.
 - `carta/carta-presentacion-mt.html`: carta visual lista para imprimir o exportar a PDF.
-- `automatizacion/google-apps-script.gs`: automatizacion para Gmail.
-- `automatizacion/README.md`: pasos para activar el envio automatico.
 
 ## Como abrir la pagina
 
@@ -25,18 +23,13 @@ Modificar `site/config.js`:
 
 ```js
 window.MT_CONFIG = {
-  companyEmail: "contacto@logisticamt.com",
-  companyWhatsapp: "5491100000000",
-  appsScriptUrl: "",
-  presentationUrl: "../carta/carta-presentacion-mt.html"
+  companyWhatsapp: "5491100000000"
 };
 ```
 
-## Como activar el envio automatico
+## Formulario de cotizacion
 
-Seguir los pasos de `automatizacion/README.md`.
-
-Cuando Google Apps Script entregue la URL de la aplicacion web, pegarla en `appsScriptUrl`.
+Al enviar el formulario, se abre WhatsApp con los datos cargados para coordinar la cotizacion directamente con el numero configurado en `companyWhatsapp`.
 
 ## Carta de presentacion
 
