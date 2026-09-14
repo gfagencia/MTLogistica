@@ -112,10 +112,13 @@
             <span class="parcel parcel-c"></span>
           </div>
 
-          <!-- Icono de moto "two_wheeler" de Google Material Symbols (Apache License 2.0) -->
           <div class="van courier-moto" aria-hidden="true">
-            <svg class="van-svg" viewBox="-240 -640 1200 460" xmlns="http://www.w3.org/2000/svg">
+            <svg class="van-svg" viewBox="0 0 240 140" xmlns="http://www.w3.org/2000/svg">
               <defs>
+                <linearGradient id="vanBoxGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#eff8ef"/>
+                  <stop offset="100%" stop-color="#aebbab"/>
+                </linearGradient>
                 <linearGradient id="vanCabinGrad" x1="0" y1="0" x2="1" y2="1">
                   <stop offset="0%" stop-color="#8aff6f"/>
                   <stop offset="100%" stop-color="#38d430"/>
@@ -126,10 +129,19 @@
                 </linearGradient>
               </defs>
 
-              <rect class="cargo cargo-a" x="-220" y="-500" width="150" height="150" rx="14"/>
-              <rect class="cargo-strap" x="-200" y="-465" width="110" height="10" rx="5"/>
+              <rect class="van-box-shape" x="14" y="28" width="146" height="76" rx="16"/>
 
-              <path class="van-icon-shape" d="M160-200q-66 0-113-47T0-360q0-57 36.5-101t93.5-55l-28-24H0v-60h180l100 60 160-60h126l-62-80H400v-80h142l84 108 134-68v120h-92l70 92q15-6 30.5-9t31.5-3q66 0 113 47t47 113q0 66-47 113t-113 47q-66 0-113-47t-47-113q0-27 9.5-52.5T676-460l-20-24-136 204H400l-80-70q-5 63-51 106.5T160-200Zm0-80q33 0 56.5-23.5T240-360q0-33-23.5-56.5T160-440q-33 0-56.5 23.5T80-360q0 33 23.5 56.5T160-280Zm640 0q33 0 56.5-23.5T880-360q0-33-23.5-56.5T800-440q-33 0-56.5 23.5T720-360q0 33 23.5 56.5T800-280Z"/>
+              <rect class="cargo cargo-a" x="26" y="42" width="30" height="24" rx="4"/>
+              <rect class="cargo cargo-b" x="62" y="42" width="30" height="24" rx="4"/>
+              <rect class="cargo cargo-c" x="44" y="70" width="30" height="24" rx="4"/>
+
+              <path class="van-cabin-shape" d="M160 104 L160 58 Q160 42 176 42 L198 42 Q210 42 214 54 L222 80 Q226 104 206 104 Z"/>
+              <rect class="van-window" x="176" y="50" width="30" height="22" rx="5"/>
+
+              <circle class="wheel-shape" cx="60" cy="108" r="17"/>
+              <circle class="wheel-shape" cx="196" cy="108" r="17"/>
+              <circle class="wheel-accent" cx="60" cy="108" r="6"/>
+              <circle class="wheel-accent" cx="196" cy="108" r="6"/>
             </svg>
           </div>
 

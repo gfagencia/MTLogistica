@@ -764,22 +764,37 @@ h3 {
   overflow: visible;
 }
 
-.van-icon-shape {
+.van-box-shape {
+  fill: url(#vanBoxGrad);
+  stroke: rgba(247, 255, 247, .4);
+  stroke-width: 2;
+}
+
+.van-cabin-shape {
   fill: url(#vanCabinGrad);
-  stroke: rgba(3, 5, 3, .3);
-  stroke-width: 8;
-  stroke-linejoin: round;
+  stroke: rgba(3, 5, 3, .25);
+  stroke-width: 2;
+}
+
+.van-window {
+  fill: #f7fff7;
+  opacity: .92;
 }
 
 .van-svg .cargo {
   fill: url(#cargoGrad);
   stroke: rgba(255, 255, 255, .3);
-  stroke-width: 4;
   opacity: 1;
 }
 
-.cargo-strap {
-  fill: rgba(255, 255, 255, .25);
+.wheel-shape {
+  fill: #050805;
+  stroke: #f7fff7;
+  stroke-width: 7;
+}
+
+.wheel-accent {
+  fill: var(--green);
 }
 
 .delivery-bike {
