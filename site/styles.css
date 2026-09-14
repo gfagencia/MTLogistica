@@ -181,7 +181,7 @@ button, input, select, textarea { font: inherit; }
   inset: 0;
   background:
     linear-gradient(90deg, rgba(3, 5, 3, .94), rgba(3, 5, 3, .78) 46%, rgba(3, 5, 3, .38)),
-    url("../Logo MT.jpeg") right center/auto 110% no-repeat;
+    url("assets/Logo MT.jpeg") right center/auto 110% no-repeat;
   opacity: .86;
 }
 
@@ -499,7 +499,7 @@ h3 {
   min-height: 940px;
   background:
     linear-gradient(180deg, rgba(3,5,3,.86), rgba(56,212,48,.07) 26%, rgba(3,5,3,.82) 76%),
-    url("../Fondo del logo.jpg") center/cover fixed,
+    url("assets/Fondo del logo.jpg") center/cover fixed,
     var(--black);
 }
 
@@ -1501,7 +1501,7 @@ h3 {
   .hero-bg {
     background:
       linear-gradient(180deg, rgba(3, 5, 3, .86), rgba(3, 5, 3, .92)),
-      url("../Logo MT.jpeg") center top/cover no-repeat;
+      url("assets/Logo MT.jpeg") center top/cover no-repeat;
   }
 
   h1 {
