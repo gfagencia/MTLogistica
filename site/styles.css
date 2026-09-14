@@ -495,8 +495,8 @@ h3 {
 .operation-cinema {
   position: relative;
   overflow: hidden;
-  height: 118vh;
-  min-height: 760px;
+  height: 190vh;
+  min-height: 1180px;
   background:
     linear-gradient(180deg, rgba(3,5,3,.86), rgba(56,212,48,.07) 26%, rgba(3,5,3,.82) 76%),
     url("assets/Fondo del logo.jpg") center/cover fixed,
@@ -583,7 +583,7 @@ h3 {
 .logistics-stage {
   position: relative;
   min-width: 0;
-  min-height: clamp(440px, 56vh, 600px);
+  min-height: clamp(480px, 58vh, 640px);
   border: 1px solid var(--line);
   border-radius: 36px;
   overflow: hidden;
@@ -762,16 +762,28 @@ h3 {
   overflow: visible;
 }
 
-.van-box-shape {
-  fill: url(#vanBoxGrad);
-  stroke: rgba(247, 255, 247, .4);
-  stroke-width: 2;
-}
-
 .van-cabin-shape {
   fill: url(#vanCabinGrad);
   stroke: rgba(3, 5, 3, .25);
   stroke-width: 2;
+}
+
+.van-seat {
+  fill: #0a120a;
+}
+
+.van-neck {
+  stroke: var(--green);
+  stroke-width: 12;
+  stroke-linecap: round;
+  fill: none;
+}
+
+.van-handlebar {
+  stroke: #f7fff7;
+  stroke-width: 8;
+  stroke-linecap: round;
+  fill: none;
 }
 
 .van-window {
@@ -1448,15 +1460,6 @@ h3 {
     width: 250px;
     height: 142px;
     left: 12%;
-  }
-  .van-box {
-    width: 86px;
-    height: 66px;
-  }
-  .van-cabin {
-    right: 58px;
-    width: 60px;
-    height: 60px;
   }
   .warehouse {
     width: 138px;
