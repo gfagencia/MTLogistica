@@ -6,8 +6,8 @@ Entrega inicial del proyecto:
 - `site/styles.css`: estilos visuales responsive.
 - `site/script.js`: comportamiento del formulario y modal de cotizacion.
 - `site/config.js`: datos editables de contacto e integracion.
-- `carta/carta-presentacion-mt.md`: carta comercial editable.
-- `carta/carta-presentacion-mt.html`: carta visual lista para imprimir o exportar a PDF.
+- `site/carta/carta-presentacion-mt.md`: carta comercial editable.
+- `site/carta/carta-presentacion-mt.html`: carta visual, enlazada desde la web, lista para imprimir o exportar a PDF.
 
 ## Como abrir la pagina
 
@@ -33,6 +33,6 @@ Al enviar el formulario, se abre WhatsApp con los datos cargados para coordinar 
 
 ## Carta de presentacion
 
-La version editable esta en `carta/carta-presentacion-mt.md`.
+La version editable esta en `site/carta/carta-presentacion-mt.md`.
 
-La version visual esta en `carta/carta-presentacion-mt.html`. Desde el navegador se puede imprimir o guardar como PDF.
+La version visual esta en `site/carta/carta-presentacion-mt.html`, enlazada desde el menu, el pie de pagina y la seccion de contacto de la web. Desde el navegador se puede imprimir o guardar como PDF.
