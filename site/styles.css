@@ -985,6 +985,36 @@ h3 {
   background: rgba(255, 255, 255, .025);
 }
 
+.coverage-map {
+  margin-top: 28px;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.coverage-map img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.work-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.work-gallery img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
 .process {
   display: grid;
   grid-template-columns: .75fr 1.25fr;
@@ -1455,6 +1485,7 @@ h3 {
   .service-grid,
   .advantages,
   .testimonials,
+  .work-gallery,
   .form {
     grid-template-columns: 1fr;
   }
