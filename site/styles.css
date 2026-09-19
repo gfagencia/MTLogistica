@@ -499,7 +499,11 @@ h3 {
   min-height: 940px;
   background:
     linear-gradient(180deg, rgba(3,5,3,.86), rgba(56,212,48,.07) 26%, rgba(3,5,3,.82) 76%),
-    url("assets/Fondo del logo.jpg") center/cover fixed,
+    repeating-linear-gradient(0deg, rgba(138,255,111,.09) 0 2px, transparent 2px 64px),
+    repeating-linear-gradient(90deg, rgba(138,255,111,.09) 0 2px, transparent 2px 64px),
+    repeating-linear-gradient(45deg, rgba(138,255,111,.06) 0 3px, transparent 3px 220px),
+    repeating-linear-gradient(-45deg, rgba(138,255,111,.06) 0 3px, transparent 3px 220px),
+    radial-gradient(circle at 30% 20%, rgba(56,212,48,.12), transparent 55%),
     var(--black);
 }
 
@@ -610,8 +614,14 @@ h3 {
   inset: -8%;
   width: 116%;
   height: 116%;
-  object-fit: cover;
-  filter: saturate(1.18) contrast(1.12) brightness(.52);
+  background:
+    repeating-linear-gradient(0deg, rgba(138,255,111,.14) 0 2px, transparent 2px 58px),
+    repeating-linear-gradient(90deg, rgba(138,255,111,.14) 0 2px, transparent 2px 58px),
+    repeating-linear-gradient(45deg, rgba(138,255,111,.09) 0 4px, transparent 4px 190px),
+    repeating-linear-gradient(-45deg, rgba(138,255,111,.09) 0 4px, transparent 4px 190px),
+    radial-gradient(circle at 68% 32%, rgba(56,212,48,.22), transparent 55%),
+    #06120a;
+  filter: saturate(1.18) contrast(1.12) brightness(.68);
   transform: scale(1.05);
 }
 
