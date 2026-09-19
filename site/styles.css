@@ -1026,6 +1026,7 @@ h3 {
 }
 
 .coverage-map-image {
+  position: relative;
   flex: 1 1 560px;
   min-width: 0;
   border-radius: 22px;
@@ -1033,10 +1034,102 @@ h3 {
   background: #050805;
 }
 
-.coverage-map-image img {
+.coverage-svg {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.area {
+  stroke: rgba(5,8,5,.75);
+  stroke-width: 1.2;
+  stroke-linejoin: round;
+  cursor: pointer;
+  transition: filter .15s ease, stroke-width .15s ease;
+}
+
+.area:hover,
+.area:focus-visible {
+  filter: brightness(1.3);
+  stroke: #f7fff7;
+  stroke-width: 2.2;
+  outline: none;
+}
+
+.zone1 { fill: var(--green); }
+.zone2 { fill: #f5c542; }
+.zone3 { fill: var(--green-2); }
+.zone4 { fill: #1a5b1d; }
+
+.area-label {
+  fill: #08150a;
+  font-weight: 700;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  font-family: Arial, Helvetica, sans-serif;
+  pointer-events: none;
+}
+
+.caba-label {
+  fill: #ffffff;
+  font-weight: 900;
+}
+
+.area-marker {
+  fill: #08150a;
+  stroke: #f7fff7;
+  stroke-width: 1.5;
+  cursor: pointer;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform .15s ease, stroke .15s ease;
+}
+
+.area-marker:hover {
+  transform: scale(1.3);
+  stroke: var(--green-2);
+}
+
+.marker-label {
+  fill: #f7fff7;
+  font-size: 11px;
+  font-weight: 800;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  font-family: Arial, Helvetica, sans-serif;
+  pointer-events: none;
+}
+
+.map-tooltip {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 20;
+  padding: 8px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--line-strong);
+  background: rgba(8, 21, 10, .95);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 900;
+  box-shadow: var(--shadow);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -120%);
+  transition: opacity .12s ease;
+}
+
+.map-tooltip.is-visible {
+  opacity: 1;
+}
+
+.map-tooltip .tooltip-zone {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
 }
 
 .coverage-legend {
@@ -1113,21 +1206,6 @@ h3 {
   flex-shrink: 0;
 }
 
-.work-gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  margin-top: 20px;
-}
-
-.work-gallery img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-  border-radius: 24px;
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow);
-}
 
 .process {
   display: grid;
@@ -1599,7 +1677,6 @@ h3 {
   .service-grid,
   .advantages,
   .testimonials,
-  .work-gallery,
   .form {
     grid-template-columns: 1fr;
   }
