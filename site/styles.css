@@ -942,6 +942,24 @@ h3 {
   grid-template-columns: repeat(3, 1fr);
 }
 
+.client-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.client-badges span {
+  padding: 10px 20px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.03));
+  color: var(--green-2);
+  font-weight: 900;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
 .card {
   position: relative;
   min-height: 228px;
