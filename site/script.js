@@ -147,7 +147,7 @@
   const mapTooltip = document.getElementById("mapTooltip");
 
   if (mapImage && mapTooltip) {
-    const mapTargets = mapImage.querySelectorAll(".area, .area-marker");
+    const mapTargets = mapImage.querySelectorAll(".area");
 
     function showMapTooltip(target, event) {
       const name = target.getAttribute("data-name");
