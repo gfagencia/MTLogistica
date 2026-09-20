@@ -143,10 +143,11 @@
   window.addEventListener("scroll", requestCinemaUpdate, { passive: true });
   window.addEventListener("resize", requestCinemaUpdate);
 
+  const mapContainer = document.querySelector(".coverage-map");
   const mapImage = document.querySelector(".coverage-map-image");
   const mapTooltip = document.getElementById("mapTooltip");
 
-  if (mapImage && mapTooltip) {
+  if (mapContainer && mapImage && mapTooltip) {
     const mapTargets = mapImage.querySelectorAll(".area");
 
     function showMapTooltip(target, event) {
@@ -159,7 +160,7 @@
     }
 
     function moveMapTooltip(event) {
-      const rect = mapImage.getBoundingClientRect();
+      const rect = mapContainer.getBoundingClientRect();
       const point = event.touches ? event.touches[0] : event;
       const x = point.clientX - rect.left;
       const y = point.clientY - rect.top;

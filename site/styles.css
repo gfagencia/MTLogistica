@@ -1014,6 +1014,7 @@ h3 {
 }
 
 .coverage-map {
+  position: relative;
   display: flex;
   gap: 24px;
   align-items: stretch;
@@ -1060,6 +1061,24 @@ h3 {
 .zone2 { fill: #f5c542; }
 .zone3 { fill: var(--green-2); }
 .zone4 { fill: #1a5b1d; }
+
+.caba-label {
+  fill: #ffffff;
+  font-weight: 900;
+  font-family: Arial, Helvetica, sans-serif;
+  pointer-events: none;
+}
+
+.caba-leader {
+  stroke: #ffffff;
+  stroke-width: 1.5;
+  pointer-events: none;
+}
+
+.caba-dot {
+  fill: #ffffff;
+  pointer-events: none;
+}
 
 .map-tooltip {
   position: absolute;
