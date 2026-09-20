@@ -1130,15 +1130,55 @@ h3 {
 
 .zone-key {
   display: grid;
-  gap: 8px;
+  gap: 4px;
 }
 
-.zone-key div {
+.zone-item {
+  border-bottom: 1px solid var(--line);
+}
+
+.zone-item:last-child {
+  border-bottom: none;
+}
+
+.zone-item summary {
   display: flex;
   align-items: center;
   gap: 8px;
   color: #dce9dc;
   font-size: 13px;
+  font-weight: 700;
+  padding: 9px 4px;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.zone-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.zone-item summary::after {
+  content: "+";
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1;
+}
+
+.zone-item[open] summary::after {
+  content: "\2212";
+}
+
+.zone-item summary:hover {
+  color: var(--white);
+}
+
+.zone-item p {
+  margin: 0 4px 12px;
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.5;
 }
 
 .zone-swatch {
@@ -1152,30 +1192,6 @@ h3 {
 .zone-swatch.zone2 { background: #f5c542; }
 .zone-swatch.zone3 { background: var(--green-2); }
 .zone-swatch.zone4 { background: #1a5b1d; }
-
-.zone-groups {
-  display: grid;
-  gap: 14px;
-  margin-top: 18px;
-  padding-top: 18px;
-  border-top: 1px solid var(--line);
-}
-
-.zone-group h4 {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  margin-bottom: 4px;
-  color: var(--white);
-}
-
-.zone-group p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 12.5px;
-  line-height: 1.5;
-}
 
 .process {
   display: grid;
