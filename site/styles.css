@@ -1153,6 +1153,30 @@ h3 {
 .zone-swatch.zone3 { background: var(--green-2); }
 .zone-swatch.zone4 { background: #1a5b1d; }
 
+.zone-groups {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.zone-group h4 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  margin-bottom: 4px;
+  color: var(--white);
+}
+
+.zone-group p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
 .process {
   display: grid;
   grid-template-columns: .75fr 1.25fr;
