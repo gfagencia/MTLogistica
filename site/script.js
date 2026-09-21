@@ -217,13 +217,17 @@
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     const payload = buildLeadPayload();
-    const phone = config.companyWhatsapp || "5491124934095";
-    const text = encodeURIComponent(buildWhatsappMessage(payload));
+
+    try {
+      sessionStorage.setItem("mtLead", JSON.stringify({
+        nombre: payload.nombre,
+        mensaje: buildWhatsappMessage(payload)
+      }));
+    } catch (error) {}
 
     status.className = "form-status ok";
-    status.textContent = "Te llevamos a WhatsApp y te abrimos la carta de presentacion.";
+    status.textContent = "Te llevamos a la carta de presentacion...";
     form.reset();
-    window.open("carta/carta-presentacion-mt.html", "_blank", "noopener");
-    window.location.href = `https://wa.me/${phone}?text=${text}`;
+    window.location.href = "carta/carta-presentacion-mt.html?enviado=1";
   });
 })();

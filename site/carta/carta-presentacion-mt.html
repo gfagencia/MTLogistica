@@ -376,9 +376,45 @@
         break-inside: avoid;
       }
 
-      .actions {
+      .actions,
+      .lead-banner {
         display: none !important;
       }
+    }
+
+    .lead-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 16px;
+      padding: 20px 24px;
+      border: 1px solid rgba(138, 255, 111, .4);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(56, 212, 48, .2), rgba(255, 255, 255, .04)), rgba(16, 21, 17, .95);
+      box-shadow: 0 0 40px rgba(56, 212, 48, .18);
+    }
+
+    .lead-banner[hidden] { display: none; }
+
+    .lead-banner strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--green-2);
+      font-size: 20px;
+    }
+
+    .lead-banner p {
+      margin: 0;
+      color: #d4ded3;
+      max-width: 520px;
+    }
+
+    .lead-banner-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
     .actions {
@@ -434,6 +470,16 @@
 </head>
 <body>
   <main class="page">
+    <div class="lead-banner" id="leadBanner" hidden>
+      <div>
+        <strong id="leadTitle">Recibimos tus datos</strong>
+        <p>Mira nuestra carta de presentacion. Cuando quieras, seguimos la charla por WhatsApp con tu consulta ya cargada.</p>
+      </div>
+      <div class="lead-banner-actions">
+        <a class="action-btn action-btn-whatsapp" id="leadWhatsapp" href="#">Continuar por WhatsApp</a>
+        <a class="action-btn" href="../index.html">Volver al sitio</a>
+      </div>
+    </div>
     <div class="actions">
       <a class="action-btn" href="carta-presentacion-mt.pdf" download>Descargar PDF</a>
       <a class="action-btn action-btn-whatsapp" id="shareWhatsapp" href="#" target="_blank" rel="noopener">Compartir por WhatsApp</a>
@@ -538,7 +584,19 @@
       </section>
     </div>
   </main>
+  <script src="../config.js"></script>
   <script>
+    (function () {
+      var lead = null;
+      try { lead = JSON.parse(sessionStorage.getItem("mtLead") || "null"); } catch (e) {}
+      var banner = document.getElementById("leadBanner");
+      if (lead && lead.mensaje && banner) {
+        var phone = (window.MT_CONFIG && window.MT_CONFIG.companyWhatsapp) || "5491124934095";
+        document.getElementById("leadWhatsapp").href = "https://wa.me/" + phone + "?text=" + encodeURIComponent(lead.mensaje);
+        if (lead.nombre) document.getElementById("leadTitle").textContent = "Gracias, " + lead.nombre + "! Recibimos tus datos";
+        banner.hidden = false;
+      }
+    })();
     (function () {
       var link = document.getElementById("shareWhatsapp");
       if (!link) return;
