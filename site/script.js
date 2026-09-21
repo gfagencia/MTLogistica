@@ -109,7 +109,7 @@
 
     if (van) {
       const x = isMobile ? -8 + drive * 44 : -34 + drive * 156;
-      const y = isMobile ? 6 - drive * 40 : 8 - drive * 102;
+      const y = isMobile ? 0 : 8 - drive * 102;
       const scale = 0.94 + Math.sin(drive * Math.PI) * 0.08 - drive * 0.14;
       van.style.transform = `translate3d(${x}%, ${y}px, 0) scale(${scale})`;
       van.style.opacity = `${1 - segment(progress, 0.88, 1) * 0.38}`;
@@ -131,7 +131,15 @@
       item.style.transform = `translate3d(0, ${(1 - local) * 20}px, 0) scale(${0.95 + local * 0.05})`;
     });
 
-    deliveryCards.forEach((card, index) => {
+    if (isMobile) {
+      const current = progress < 0.3 ? 0 : progress < 0.68 ? 1 : 2;
+      deliveryCards.forEach((card, index) => {
+        card.style.opacity = index === current ? "1" : ".5";
+        card.style.transform = "none";
+      });
+    }
+
+    if (!isMobile) deliveryCards.forEach((card, index) => {
       const starts = [0.02, 0.34, 0.66];
       const local = segment(progress, starts[index], starts[index] + 0.32);
       card.style.opacity = `${local > 0 && local < 1 ? 1 : index === 0 && progress < 0.34 ? 1 : index === 2 && progress > 0.66 ? 1 : 0.55}`;

@@ -1696,7 +1696,6 @@ h3 {
   }
   .logistics-stage {
     width: 100%;
-    min-height: 540px;
     border-radius: 26px;
   }
   .operation-cinema {
@@ -1706,36 +1705,59 @@ h3 {
   .cinema-checkpoints article {
     transform: none;
   }
+  .logistics-stage {
+    min-height: 410px;
+  }
+  .stage-route,
+  .parcel,
+  .warehouse {
+    display: none;
+  }
   .van {
     width: 230px;
     height: 130px;
     left: 8%;
-    bottom: 6%;
+    bottom: 14px;
   }
   .warehouse {
-    width: 104px;
-    height: 84px;
-    left: 4%;
-    bottom: 5%;
+    width: 96px;
+    height: 74px;
+    left: 14px;
+    bottom: 14px;
   }
-  .delivery-card,
-  .live-badge {
-    width: 134px;
-    padding: 10px 12px;
+  .delivery-card {
+    left: 14px;
+    right: 14px;
+    width: auto;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 11px 16px;
     border-radius: 16px;
+  }
+  .live-badge {
+    left: 14px;
+    right: auto;
+    top: 14px;
+    width: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
   }
   .delivery-card strong,
   .live-badge strong {
-    font-size: 16px;
+    font-size: 15px;
   }
   .delivery-card span,
   .live-badge span {
-    font-size: 11.5px;
+    font-size: 12px;
   }
-  .card-retiro { left: 5%; right: auto; top: 4%; }
-  .live-badge { left: auto; right: 5%; top: 4%; }
-  .card-ruta { left: 5%; right: auto; top: 25%; }
-  .card-final { left: auto; right: 5%; top: 45%; bottom: auto; }
+  .card-retiro { top: 64px; bottom: auto; }
+  .card-ruta { top: 116px; bottom: auto; }
+  .card-final { top: 168px; bottom: auto; }
 
   .coverage-map {
     padding: 10px;
