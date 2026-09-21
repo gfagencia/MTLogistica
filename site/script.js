@@ -10,6 +10,7 @@
   const story = document.querySelector(".operation-cinema");
   const routeLive = document.querySelector(".route-live");
   const stageMap = document.querySelector(".stage-map");
+  const stageBox = document.querySelector(".logistics-stage");
   const van = document.querySelector(".van");
   const door = document.querySelector(".door");
   const parcels = document.querySelectorAll(".parcel");
@@ -81,11 +82,20 @@
     if (!story || reduceMotion) return;
 
     const rect = story.getBoundingClientRect();
-    const travel = Math.max(1, rect.height - window.innerHeight);
-    const progress = clamp(-rect.top / travel, 0, 1);
-    const load = easeInOut(segment(progress, 0.05, 0.28));
-    const drive = easeInOut(segment(progress, 0.16, 0.78));
-    const route = segment(progress, 0.14, 0.86);
+    const isMobile = window.innerWidth <= 720;
+    let progress;
+
+    if (isMobile && stageBox) {
+      const stageRect = stageBox.getBoundingClientRect();
+      progress = clamp((window.innerHeight * 0.85 - stageRect.top) / (stageRect.height + window.innerHeight * 0.5), 0, 1);
+    } else {
+      const travel = Math.max(1, rect.height - window.innerHeight);
+      progress = clamp(-rect.top / travel, 0, 1);
+    }
+
+    const load = easeInOut(isMobile ? segment(progress, 0.02, 0.22) : segment(progress, 0.05, 0.28));
+    const drive = easeInOut(isMobile ? segment(progress, 0.1, 0.94) : segment(progress, 0.16, 0.78));
+    const route = isMobile ? segment(progress, 0.08, 0.94) : segment(progress, 0.14, 0.86);
     const active = Math.min(3, Math.floor(progress * 4.15));
 
     if (stageMap) {
@@ -98,8 +108,8 @@
     }
 
     if (van) {
-      const x = -34 + drive * 156;
-      const y = 8 - drive * 102;
+      const x = isMobile ? -8 + drive * 44 : -34 + drive * 156;
+      const y = isMobile ? 6 - drive * 40 : 8 - drive * 102;
       const scale = 0.94 + Math.sin(drive * Math.PI) * 0.08 - drive * 0.14;
       van.style.transform = `translate3d(${x}%, ${y}px, 0) scale(${scale})`;
       van.style.opacity = `${1 - segment(progress, 0.88, 1) * 0.38}`;

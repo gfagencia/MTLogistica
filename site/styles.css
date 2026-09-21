@@ -1696,7 +1696,7 @@ h3 {
   }
   .logistics-stage {
     width: 100%;
-    min-height: 420px;
+    min-height: 540px;
     border-radius: 26px;
   }
   .operation-cinema {
@@ -1707,22 +1707,49 @@ h3 {
     transform: none;
   }
   .van {
-    width: 250px;
-    height: 142px;
-    left: 12%;
+    width: 230px;
+    height: 130px;
+    left: 8%;
+    bottom: 6%;
   }
   .warehouse {
-    width: 138px;
-    height: 112px;
+    width: 104px;
+    height: 84px;
+    left: 4%;
+    bottom: 5%;
   }
   .delivery-card,
   .live-badge {
-    width: 140px;
+    width: 134px;
+    padding: 10px 12px;
+    border-radius: 16px;
   }
-  .card-ruta,
-  .card-final {
-    right: 4%;
+  .delivery-card strong,
+  .live-badge strong {
+    font-size: 16px;
   }
+  .delivery-card span,
+  .live-badge span {
+    font-size: 11.5px;
+  }
+  .card-retiro { left: 5%; right: auto; top: 4%; }
+  .live-badge { left: auto; right: 5%; top: 4%; }
+  .card-ruta { left: 5%; right: auto; top: 25%; }
+  .card-final { left: auto; right: 5%; top: 45%; bottom: auto; }
+
+  .coverage-map {
+    padding: 10px;
+    gap: 16px;
+    border-radius: 22px;
+  }
+
+  .coverage-map-image {
+    flex: 0 0 auto;
+    border-radius: 16px;
+  }
+
+  .caba-label { font-size: 26px; }
+  .caba-leader { stroke-width: 3; }
 
   .mini-card {
     position: relative;
@@ -1747,6 +1774,7 @@ h3 {
 
   .coverage-legend {
     flex-basis: auto;
+    padding: 4px 8px 8px;
   }
 
   .timeline li {
