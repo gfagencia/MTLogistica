@@ -154,22 +154,61 @@
       color: #d4ded3;
     }
 
-    .coverage-photo {
-      margin-top: 14px;
-      border: 1px solid rgba(204, 255, 210, .16);
-      border-radius: 24px;
-      overflow: hidden;
-      background: #030503;
+    .coverage-map-card {
+      margin-top: 10px;
+      font-size: 0;
     }
 
-    .coverage-photo img {
-      display: block;
-      width: 100%;
-      height: auto;
-      max-height: 420px;
-      object-fit: contain;
-      margin: 0 auto;
+    .coverage-map-svg {
+      display: inline-block;
+      vertical-align: top;
+      width: calc(100% - 122px);
+      height: 380px;
+      margin-right: 14px;
+      border: 1px solid rgba(204, 255, 210, .16);
+      border-radius: 20px;
+      overflow: hidden;
+      background: #050805;
+      text-align: center;
     }
+
+    .coverage-map-svg img {
+      display: inline-block;
+      height: 100%;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    .coverage-mini-legend {
+      display: inline-grid;
+      vertical-align: top;
+      width: 108px;
+      gap: 8px;
+      padding-top: 4px;
+      font-size: 16px;
+    }
+
+    .coverage-mini-legend div {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #dce9dc;
+    }
+
+    .zone-swatch {
+      width: 14px;
+      height: 14px;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    .zone-swatch.zone1 { background: var(--green); }
+    .zone-swatch.zone2 { background: #f5c542; }
+    .zone-swatch.zone3 { background: var(--green-2); }
+    .zone-swatch.zone4 { background: #1a5b1d; }
 
     .partners {
       display: flex;
@@ -283,7 +322,7 @@
 
     @media print {
       @page {
-        size: A4;
+        size: A4 landscape;
         margin: 0;
       }
 
@@ -351,17 +390,35 @@
         margin-bottom: 8px;
       }
 
-      .coverage-photo {
-        margin-top: 8px;
+      .coverage-map-card {
+        margin-top: 6px;
       }
 
-      .coverage-photo img {
-        max-height: 320px;
+      .coverage-map-svg {
+        width: calc(100% - 98px);
+        height: 230px;
+        margin-right: 10px;
+      }
+
+      .coverage-mini-legend {
+        width: 88px;
+      }
+
+      .coverage-mini-legend div {
+        font-size: 10.5px;
       }
 
       .partners {
         margin-top: 8px;
         gap: 8px;
+      }
+
+      .partners-stack {
+        display: block;
+      }
+
+      .partners-stack .partner-logo {
+        margin-bottom: 8px;
       }
 
       .partner-logo {
@@ -462,6 +519,20 @@
         margin-right: 0;
       }
 
+      .coverage-map-svg {
+        display: block;
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .coverage-mini-legend {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 10px 16px;
+      }
+
       .cover {
         flex-direction: column;
         min-height: auto;
@@ -522,27 +593,35 @@
         </section>
       </div>
 
-      <section>
-        <h2>Zonas que abarcamos</h2>
-        <p class="lead lead-wide">Cobertura en CABA y todo el GBA, organizada por zonas.</p>
-        <div class="coverage-photo">
-          <img src="../assets/mapa-cobertura.jpg" alt="Mapa de cobertura de Logistica MT por zonas en CABA y AMBA">
-        </div>
-      </section>
+      <div class="two-col">
+        <section>
+          <h2>Zonas que abarcamos</h2>
+          <p class="lead lead-wide">Cobertura en CABA y todo el GBA, organizada por zonas.</p>
+          <div class="coverage-map-card">
+            <div class="coverage-map-svg"><img src="../assets/mapa-cobertura-mt.png" alt="Mapa de cobertura de Logistica MT por zonas en CABA y AMBA"></div>
+            <div class="coverage-mini-legend">
+              <div><span class="zone-swatch zone1"></span>CABA</div>
+              <div><span class="zone-swatch zone2"></span>Zona 2</div>
+              <div><span class="zone-swatch zone3"></span>Zona 3</div>
+              <div><span class="zone-swatch zone4"></span>Zona 4</div>
+            </div>
+          </div>
+        </section>
 
-      <section>
-        <h2>Con que trabajamos</h2>
-        <p class="lead lead-wide">Nos integramos a las plataformas que ya usas.</p>
-        <div class="partners">
-          <div class="partner-logo">
-            <img src="../assets/logo-mercado-envios.png" alt="Mercado Envios Flex">
-            <span>Mercado Envios Flex</span>
+        <section>
+          <h2>Con que trabajamos</h2>
+          <p class="lead lead-wide">Nos integramos a las plataformas que ya usas.</p>
+          <div class="partners partners-stack">
+            <div class="partner-logo">
+              <img src="../assets/logo-mercado-envios.png" alt="Mercado Envios Flex">
+              <span>Mercado Envios Flex</span>
+            </div>
+            <div class="partner-logo partner-logo-wordmark">
+              <img src="../assets/logo-tiendanube.png" alt="Tiendanube">
+            </div>
           </div>
-          <div class="partner-logo partner-logo-wordmark">
-            <img src="../assets/logo-tiendanube.png" alt="Tiendanube">
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       <section class="cta">
         <h2>Gracias por tu tiempo!</h2>
