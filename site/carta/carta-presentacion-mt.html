@@ -49,33 +49,19 @@
 
     .cover {
       position: relative;
-      display: grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap: 32px;
-      align-items: stretch;
-      min-height: 520px;
-      padding: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+      min-height: 280px;
+      padding: 40px;
       border: 1px solid var(--line);
       border-radius: 34px;
       background:
-        linear-gradient(90deg, rgba(3, 5, 3, .94), rgba(3, 5, 3, .48)),
-        url("../assets/Logo MT.jpeg") right center/auto 118% no-repeat;
+        linear-gradient(135deg, rgba(56, 212, 48, .16), rgba(255,255,255,.03)),
+        rgba(8, 11, 8, .92);
       overflow: hidden;
       box-shadow: 0 28px 90px rgba(0, 0, 0, .55);
-    }
-
-    .cover::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, transparent, rgba(3,5,3,.72));
-      pointer-events: none;
-    }
-
-    .cover-content,
-    .cover-card {
-      position: relative;
-      z-index: 1;
     }
 
     .logo {
@@ -85,32 +71,34 @@
       border: 1px solid rgba(138, 255, 111, .38);
       border-radius: 22px;
       box-shadow: 0 0 34px rgba(56, 212, 48, .34);
+      flex-shrink: 0;
     }
 
-    .eyebrow {
-      margin: 28px 0 12px;
-      color: var(--green-2);
-      font-size: 12px;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0;
+    .logo-big {
+      width: 150px;
+      height: 150px;
+      border-radius: 30px;
+    }
+
+    .cover-text {
+      text-align: center;
     }
 
     h1, h2, h3, p { margin-top: 0; }
 
     h1 {
       max-width: 600px;
-      margin-bottom: 16px;
-      font-size: 64px;
+      margin-bottom: 10px;
+      font-size: 56px;
       line-height: .98;
       letter-spacing: 0;
     }
 
     .slogan {
       color: var(--green-2);
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 900;
-      margin-bottom: 22px;
+      margin-bottom: 0;
     }
 
     .lead {
@@ -121,27 +109,6 @@
 
     .lead-wide {
       max-width: none;
-    }
-
-    .cover-card {
-      align-self: end;
-      padding: 24px;
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.05));
-      backdrop-filter: blur(22px);
-    }
-
-    .cover-card strong {
-      display: block;
-      margin-bottom: 10px;
-      font-size: 32px;
-      line-height: 1.05;
-    }
-
-    .cover-card p {
-      color: var(--muted);
-      margin-bottom: 0;
     }
 
     .content {
@@ -185,25 +152,6 @@
 
     p {
       color: #d4ded3;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
-
-    .card {
-      min-height: 150px;
-      padding: 18px;
-      border: 1px solid rgba(204, 255, 210, .14);
-      border-radius: 22px;
-      background: rgba(0, 0, 0, .24);
-    }
-
-    .card p {
-      color: var(--muted);
-      margin-bottom: 0;
     }
 
     .coverage-photo {
@@ -260,30 +208,52 @@
       height: 26px;
     }
 
-    .benefits {
+    .benefits,
+    .simple-list {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px 18px;
+      gap: 10px;
       margin: 0;
       padding: 0;
       list-style: none;
     }
 
-    .benefits li {
+    .benefits li,
+    .simple-list li {
       position: relative;
       padding-left: 20px;
       color: #d4ded3;
     }
 
-    .benefits li::before {
+    .simple-list li {
+      color: var(--green-2);
+      font-weight: 900;
+    }
+
+    .benefits li::before,
+    .simple-list li::before {
       content: "";
       position: absolute;
-      top: 10px;
+      top: 8px;
       left: 0;
       width: 8px;
       height: 8px;
       border-radius: 50%;
       background: var(--green);
+    }
+
+    .two-col {
+      font-size: 0;
+    }
+
+    .two-col > section {
+      display: inline-block;
+      width: calc(50% - 9px);
+      vertical-align: top;
+      font-size: 16px;
+    }
+
+    .two-col > section:first-child {
+      margin-right: 18px;
     }
 
     .cta {
@@ -362,46 +332,23 @@
         gap: 18px;
       }
 
-      .logo {
-        width: 60px;
-        height: 60px;
-      }
-
-      .eyebrow {
-        margin: 12px 0 6px;
+      .logo-big {
+        width: 84px;
+        height: 84px;
       }
 
       h1 {
-        font-size: 38px;
-        margin-bottom: 8px;
+        font-size: 34px;
+        margin-bottom: 6px;
       }
 
       .slogan {
-        font-size: 16px;
-        margin-bottom: 8px;
-      }
-
-      .cover-card {
-        padding: 14px;
-      }
-
-      .cover-card strong {
-        font-size: 20px;
-        margin-bottom: 4px;
+        font-size: 14px;
       }
 
       h2 {
         font-size: 22px;
         margin-bottom: 8px;
-      }
-
-      .grid {
-        gap: 8px;
-      }
-
-      .card {
-        min-height: 0;
-        padding: 12px;
       }
 
       .coverage-photo {
@@ -421,8 +368,17 @@
         padding: 8px 14px;
       }
 
-      .benefits {
-        gap: 6px 14px;
+      .benefits,
+      .simple-list {
+        gap: 6px;
+      }
+
+      .two-col > section:first-child {
+        margin-right: 10px;
+      }
+
+      .two-col > section {
+        width: calc(50% - 5px);
       }
     }
 
@@ -496,19 +452,24 @@
 
     @media (max-width: 760px) {
       .page { padding: 16px; }
-      .cover, .grid, .benefits, .contact {
+      .contact {
         grid-template-columns: 1fr;
       }
 
-      .cover {
-        min-height: auto;
-        padding: 22px;
-        background:
-          linear-gradient(180deg, rgba(3, 5, 3, .82), rgba(3, 5, 3, .95)),
-          url("../assets/Logo MT.jpeg") center top/cover no-repeat;
+      .two-col > section {
+        display: block;
+        width: 100%;
+        margin-right: 0;
       }
 
-      h1 { font-size: 42px; }
+      .cover {
+        flex-direction: column;
+        min-height: auto;
+        padding: 26px 22px;
+        text-align: center;
+      }
+
+      h1 { font-size: 38px; }
     }
   </style>
 </head>
@@ -529,49 +490,40 @@
       <a class="action-btn action-btn-whatsapp" id="shareWhatsapp" href="#" target="_blank" rel="noopener">Compartir por WhatsApp</a>
     </div>
     <header class="cover">
-      <div class="cover-content">
-        <img class="logo" src="../assets/Logo MT.jpeg" alt="Logo Logistica MT">
-        <p class="eyebrow">Carta de presentacion</p>
+      <img class="logo logo-big" src="../assets/Logo MT.jpeg" alt="Logo Logistica MT">
+      <div class="cover-text">
         <h1>Logistica MT</h1>
-        <p class="slogan">Conectando soluciones, asegurando tus envios.</p>
-        <p class="lead">Mensajeria en moto, auto y mini-flete para CABA y GBA.</p>
-      </div>
-      <div class="cover-card">
-        <strong>Tu operacion, en movimiento.</strong>
-        <p>Retiros programados, entregas en el dia, cobertura CABA/GBA y coordinacion directa por WhatsApp.</p>
+        <p class="slogan">Empresa logistica con mas de 5 anios de experiencia en el rubro.</p>
       </div>
     </header>
 
     <div class="content">
-      <section>
-        <h2>Quienes somos</h2>
-        <p class="lead lead-wide">Logistica con mas de 5 anios de experiencia en mensajeria urbana. Coordinamos motos, autos y mini-fletes para comercios y e-commerce de CABA y GBA.</p>
-      </section>
+      <div class="two-col">
+        <section>
+          <h2>Servicios</h2>
+          <ul class="simple-list">
+            <li>Envios Flex y ultima milla</li>
+            <li>Mensajeria en moto</li>
+            <li>Autos para paqueteria</li>
+            <li>Mini-fletes</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Ventajas competitivas</h2>
+          <ul class="benefits">
+            <li><strong>Entregas en el dia</strong></li>
+            <li><strong>Atencion directa por WhatsApp</strong></li>
+            <li><strong>Cobertura CABA y GBA</strong></li>
+            <li><strong>Seguimiento del envio</strong></li>
+            <li><strong>Cuidado de la mercaderia</strong></li>
+            <li><strong>Tarifas a medida</strong></li>
+          </ul>
+        </section>
+      </div>
 
       <section>
-        <h2>Servicios</h2>
-        <div class="grid">
-          <article class="card">
-            <h3>Envios Flex y ultima milla</h3>
-            <p>Retiros y entregas para Mercado Envios Flex y e-commerce.</p>
-          </article>
-          <article class="card">
-            <h3>Mensajeria en moto</h3>
-            <p>Tramites y paquetes chicos, rapido.</p>
-          </article>
-          <article class="card">
-            <h3>Autos para paqueteria</h3>
-            <p>Paquetes medianos con mayor resguardo.</p>
-          </article>
-          <article class="card">
-            <h3>Mini-fletes</h3>
-            <p>Cajas y bultos voluminosos.</p>
-          </article>
-        </div>
-      </section>
-
-      <section>
-        <h2>Donde operamos</h2>
+        <h2>Zonas que abarcamos</h2>
         <p class="lead lead-wide">Cobertura en CABA y todo el GBA, organizada por zonas.</p>
         <div class="coverage-photo">
           <img src="../assets/mapa-cobertura.jpg" alt="Mapa de cobertura de Logistica MT por zonas en CABA y AMBA">
@@ -592,49 +544,9 @@
         </div>
       </section>
 
-      <section>
-        <h2>Confian en nosotros</h2>
-        <div class="partners">
-          <div class="partner-logo">
-            <svg viewBox="0 0 64 64" aria-hidden="true">
-              <circle cx="32" cy="32" r="30" fill="#0b3d91"/>
-              <circle cx="32" cy="32" r="30" fill="none" stroke="#9fd8ff" stroke-width="2.5"/>
-              <circle cx="32" cy="29" r="12" fill="#ffffff"/>
-              <path d="M32 19l3.6 7.2-3.6 4.4-3.6-4.4z M22.5 29.5l6.7-2.4 2.2 5.4-5.8 3.3z M41.5 29.5l-6.7-2.4-2.2 5.4 5.8 3.3z M26 41l6-3.4 6 3.4-2.2 5.6h-7.6z" fill="#0b3d91"/>
-            </svg>
-            <span>PlaySport Store</span>
-          </div>
-          <div class="partner-logo">
-            <svg viewBox="0 0 64 64" aria-hidden="true">
-              <defs>
-                <linearGradient id="coverGrad" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#e02020"/>
-                  <stop offset="50%" stop-color="#ff9500"/>
-                  <stop offset="100%" stop-color="#ffd400"/>
-                </linearGradient>
-              </defs>
-              <circle cx="32" cy="32" r="21" fill="none" stroke="url(#coverGrad)" stroke-width="7" stroke-linecap="round" stroke-dasharray="3.5 7.5" transform="rotate(-50 32 32)"/>
-            </svg>
-            <span>Cover Up</span>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <h2>Ventajas competitivas</h2>
-        <ul class="benefits">
-          <li><strong>Entregas en el dia</strong></li>
-          <li><strong>Atencion directa por WhatsApp</strong></li>
-          <li><strong>Cobertura CABA y GBA</strong></li>
-          <li><strong>Seguimiento del envio</strong></li>
-          <li><strong>Cuidado de la mercaderia</strong></li>
-          <li><strong>Tarifas a medida</strong></li>
-        </ul>
-      </section>
-
       <section class="cta">
-        <h2>Hagamos crecer tu negocio</h2>
-        <p>Cuidamos tiempos, comunicacion y estado de cada paquete, como si fuera nuestra propia marca.</p>
+        <h2>Gracias por tu tiempo!</h2>
+        <p>Tu operacion, en movimiento: retiros programados, entregas en el dia, cobertura CABA/GBA y coordinacion directa por WhatsApp. Esperamos ser tu socio logistico.</p>
       </section>
 
       <section class="contact">
