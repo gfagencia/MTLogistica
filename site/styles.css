@@ -1118,15 +1118,194 @@ h3 {
   border-radius: 22px;
   overflow: hidden;
   border: 1px solid rgba(138, 255, 111, .18);
-  background: #050805;
+  background:
+    radial-gradient(ellipse 70% 60% at 88% 14%, rgba(58, 150, 220, .18), transparent 55%),
+    radial-gradient(ellipse 60% 55% at 92% 80%, rgba(58, 150, 220, .13), transparent 60%),
+    radial-gradient(ellipse 65% 55% at 18% 15%, rgba(56, 212, 48, .1), transparent 60%),
+    #050805;
   box-shadow: inset 0 0 60px rgba(0, 0, 0, .55);
 }
 
-.coverage-map-photo img {
+.coverage-svg {
   display: block;
   width: 100%;
   height: auto;
+  position: relative;
+  z-index: 1;
 }
+
+.land {
+  filter: drop-shadow(0 14px 34px rgba(0, 0, 0, .55));
+}
+
+.area {
+  stroke: rgba(255, 255, 255, .14);
+  stroke-width: 0.9;
+  stroke-linejoin: round;
+  cursor: pointer;
+  outline: none;
+  transition: filter .18s ease, stroke .18s ease, stroke-width .18s ease;
+}
+
+.area:hover,
+.area:focus-visible {
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, .6));
+  stroke: #ffffff;
+  stroke-width: 2.4;
+}
+
+.zone1 { fill: var(--green); }
+.zone2 { fill: #f5c542; }
+.zone3 { fill: var(--green-2); }
+.zone4 { fill: #1a5b1d; }
+
+.caba-label {
+  fill: #ffffff;
+  font-weight: 900;
+  font-family: Arial, Helvetica, sans-serif;
+  pointer-events: none;
+}
+
+.caba-leader {
+  stroke: #ffffff;
+  stroke-width: 1.5;
+  pointer-events: none;
+}
+
+.caba-dot {
+  fill: #ffffff;
+  pointer-events: none;
+}
+
+.map-tooltip {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 20;
+  padding: 12px 20px;
+  border-radius: 14px;
+  border: 1px solid var(--line-strong);
+  background: rgba(8, 21, 10, .97);
+  color: var(--white);
+  font-size: 20px;
+  font-weight: 900;
+  box-shadow: var(--shadow);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -130%);
+  transition: opacity .12s ease;
+}
+
+.map-tooltip.is-visible {
+  opacity: 1;
+}
+
+.map-tooltip .tooltip-zone {
+  display: block;
+  margin-top: 3px;
+  color: var(--green-2);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.coverage-legend {
+  flex: 0 0 260px;
+  min-width: 220px;
+}
+
+.coverage-legend-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.coverage-logo {
+  width: 38px;
+  height: 38px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid rgba(138, 255, 111, .35);
+  box-shadow: 0 0 20px rgba(56, 212, 48, .25);
+  flex-shrink: 0;
+}
+
+.coverage-legend h3 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.map-hint {
+  margin: 20px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.zone-key {
+  display: grid;
+  gap: 4px;
+}
+
+.zone-item {
+  border-bottom: 1px solid var(--line);
+}
+
+.zone-item:last-child {
+  border-bottom: none;
+}
+
+.zone-item summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #dce9dc;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 9px 4px;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.zone-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.zone-item summary::after {
+  content: "+";
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1;
+}
+
+.zone-item[open] summary::after {
+  content: "\2212";
+}
+
+.zone-item summary:hover {
+  color: var(--white);
+}
+
+.zone-item p {
+  margin: 0 4px 12px;
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+.zone-swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.zone-swatch.zone1 { background: var(--green); }
+.zone-swatch.zone2 { background: #f5c542; }
+.zone-swatch.zone3 { background: var(--green-2); }
+.zone-swatch.zone4 { background: #1a5b1d; }
 
 .process {
   display: grid;
@@ -1642,6 +1821,9 @@ h3 {
     border-radius: 16px;
   }
 
+  .caba-label { font-size: 26px; }
+  .caba-leader { stroke-width: 3; }
+
   .mini-card {
     position: relative;
     right: auto;
@@ -1661,6 +1843,11 @@ h3 {
 
   .coverage-map {
     flex-direction: column;
+  }
+
+  .coverage-legend {
+    flex-basis: auto;
+    padding: 4px 8px 8px;
   }
 
   .timeline li {

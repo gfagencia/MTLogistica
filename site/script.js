@@ -161,6 +161,53 @@
   window.addEventListener("scroll", requestCinemaUpdate, { passive: true });
   window.addEventListener("resize", requestCinemaUpdate);
 
+  const mapContainer = document.querySelector(".coverage-map");
+  const mapImage = document.querySelector(".coverage-map-image");
+  const mapTooltip = document.getElementById("mapTooltip");
+
+  if (mapContainer && mapImage && mapTooltip) {
+    const mapTargets = mapImage.querySelectorAll(".area");
+
+    function showMapTooltip(target, event) {
+      const name = target.getAttribute("data-name");
+      const zone = target.getAttribute("data-zone");
+      if (!name) return;
+      mapTooltip.innerHTML = `${name}<span class="tooltip-zone">${zone || ""}</span>`;
+      moveMapTooltip(event);
+      mapTooltip.classList.add("is-visible");
+    }
+
+    function moveMapTooltip(event) {
+      const rect = mapContainer.getBoundingClientRect();
+      const point = event.touches ? event.touches[0] : event;
+      const x = point.clientX - rect.left;
+      const y = point.clientY - rect.top;
+      mapTooltip.style.left = `${x}px`;
+      mapTooltip.style.top = `${y}px`;
+    }
+
+    function hideMapTooltip() {
+      mapTooltip.classList.remove("is-visible");
+    }
+
+    mapTargets.forEach((target) => {
+      target.addEventListener("mouseenter", (event) => showMapTooltip(target, event));
+      target.addEventListener("mousemove", moveMapTooltip);
+      target.addEventListener("mouseleave", hideMapTooltip);
+      target.addEventListener("focus", (event) => showMapTooltip(target, event));
+      target.addEventListener("blur", hideMapTooltip);
+      target.addEventListener(
+        "touchstart",
+        (event) => {
+          showMapTooltip(target, event);
+        },
+        { passive: true }
+      );
+    });
+
+    mapImage.addEventListener("touchend", hideMapTooltip);
+  }
+
   function buildLeadPayload() {
     const data = new FormData(form);
     return {
