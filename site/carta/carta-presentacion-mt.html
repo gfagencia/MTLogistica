@@ -202,91 +202,47 @@
       margin-bottom: 0;
     }
 
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 10px;
-      counter-reset: step;
-    }
-
-    .map-strip {
-      position: relative;
-      height: 220px;
-      margin: 8px 0 18px;
+    .coverage-photo {
+      margin-top: 14px;
       border: 1px solid rgba(204, 255, 210, .16);
       border-radius: 24px;
       overflow: hidden;
       background: #030503;
     }
 
-    .map-strip::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, rgba(3,5,3,.86), rgba(3,5,3,.35), rgba(3,5,3,.72));
-    }
-
-    .map-strip img {
-      position: absolute;
-      inset: -8%;
-      width: 116%;
-      height: 116%;
-      object-fit: cover;
-      filter: saturate(1.15) contrast(1.08) brightness(.58);
-    }
-
-    .map-strip svg {
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      width: 100%;
-      height: 100%;
-    }
-
-    .map-strip path {
-      fill: none;
-      stroke: var(--green);
-      stroke-width: 7;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      filter: drop-shadow(0 0 14px rgba(56, 212, 48, .85));
-    }
-
-    .map-strip circle {
-      fill: var(--green-2);
-      filter: drop-shadow(0 0 12px rgba(56, 212, 48, .9));
-    }
-
-    .step {
-      min-height: 145px;
-      padding: 14px;
-      border: 1px solid rgba(204, 255, 210, .14);
-      border-radius: 20px;
-      background: rgba(0, 0, 0, .26);
-      counter-increment: step;
-    }
-
-    .step::before {
-      content: counter(step);
-      display: grid;
-      place-items: center;
-      width: 30px;
-      height: 30px;
-      margin-bottom: 10px;
-      border-radius: 50%;
-      background: var(--green);
-      color: #031003;
-      font-weight: 900;
-    }
-
-    .step strong {
+    .coverage-photo img {
       display: block;
-      margin-bottom: 4px;
+      width: 100%;
+      height: auto;
+      max-height: 420px;
+      object-fit: contain;
+      margin: 0 auto;
     }
 
-    .step span {
-      color: var(--muted);
-      font-size: 13px;
+    .partners {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .partner-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 20px;
+      border: 1px solid rgba(204, 255, 210, .14);
+      border-radius: 18px;
+      background: rgba(0, 0, 0, .24);
+      font-weight: 900;
+      font-size: 15px;
+      color: var(--white);
+    }
+
+    .partner-logo svg {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
     }
 
     .benefits {
@@ -452,7 +408,7 @@
 
     @media (max-width: 760px) {
       .page { padding: 16px; }
-      .cover, .grid, .steps, .benefits, .contact {
+      .cover, .grid, .benefits, .contact {
         grid-template-columns: 1fr;
       }
 
@@ -490,7 +446,7 @@
         <p class="eyebrow">Carta de presentacion</p>
         <h1>Logistica MT</h1>
         <p class="slogan">Conectando soluciones, asegurando tus envios.</p>
-        <p class="lead">Mensajeria integral, motos, autos y mini-fletes para comercios, empresas y vendedores de CABA y GBA.</p>
+        <p class="lead">Mensajeria en moto, auto y mini-flete para CABA y GBA.</p>
       </div>
       <div class="cover-card">
         <strong>Tu operacion, en movimiento.</strong>
@@ -500,9 +456,8 @@
 
     <div class="content">
       <section>
-        <h2>Tu socio estrategico en logistica</h2>
-        <p class="lead">En Logistica MT trabajamos para que cada envio llegue en tiempo y forma, cuidando la experiencia de tu cliente como si fuera parte de nuestra propia operacion.</p>
-        <p>Somos una empresa dedicada al servicio integral de mensajeria con motos, autos y mini-fletes. Nuestro servicio combina coordinacion directa, rutas eficientes y una metodologia pensada para adaptarse al volumen, zona y urgencia de cada cliente.</p>
+        <h2>Quienes somos</h2>
+        <p class="lead">Logistica con mas de 5 anios de experiencia en mensajeria urbana. Coordinamos motos, autos y mini-fletes para comercios y e-commerce de CABA y GBA, con seguimiento de cada envio a traves de LightData.</p>
       </section>
 
       <section>
@@ -510,58 +465,106 @@
         <div class="grid">
           <article class="card">
             <h3>Envios Flex y ultima milla</h3>
-            <p>Retiros y entregas rapidas para e-commerce, Mercado Envios Flex, tiendas online y empresas.</p>
+            <p>Retiros y entregas para Mercado Envios Flex y e-commerce.</p>
           </article>
           <article class="card">
             <h3>Mensajeria en moto</h3>
-            <p>Tramites, documentacion y paquetes chicos con rapidez para recorridos urbanos.</p>
+            <p>Tramites y paquetes chicos, rapido.</p>
           </article>
           <article class="card">
             <h3>Autos para paqueteria</h3>
-            <p>Traslados de paquetes medianos, compras y reposiciones que requieren mayor resguardo.</p>
+            <p>Paquetes medianos con mayor resguardo.</p>
           </article>
           <article class="card">
             <h3>Mini-fletes</h3>
-            <p>Movimientos de cajas, bultos y pedidos voluminosos con coordinacion por franja y destino.</p>
+            <p>Cajas y bultos voluminosos.</p>
           </article>
         </div>
       </section>
 
       <section>
-        <h2>Metodologia de trabajo</h2>
-        <div class="map-strip">
-          <img src="../assets/Fondo del logo.jpg" alt="">
-          <svg viewBox="0 0 1000 280" aria-hidden="true">
-            <path d="M70 220 C180 160 235 120 340 135 C455 152 480 65 600 84 C720 103 760 190 925 72"></path>
-            <circle cx="70" cy="220" r="11"></circle>
-            <circle cx="600" cy="84" r="11"></circle>
-            <circle cx="925" cy="72" r="11"></circle>
-          </svg>
+        <h2>Donde operamos</h2>
+        <p class="lead">Cobertura en CABA y todo el GBA, organizada por zonas.</p>
+        <div class="coverage-photo">
+          <img src="../assets/mapa-cobertura.jpg" alt="Mapa de cobertura de Logistica MT por zonas en CABA y AMBA">
         </div>
-        <div class="steps">
-          <div class="step"><strong>Relevamiento</strong><span>Conocemos zonas, volumen y necesidades.</span></div>
-          <div class="step"><strong>Retiro</strong><span>Coordinamos el punto y la franja horaria.</span></div>
-          <div class="step"><strong>Planificacion</strong><span>Optimizamos recorridos y prioridades.</span></div>
-          <div class="step"><strong>Seguimiento</strong><span>Mantenemos visibilidad ante novedades.</span></div>
-          <div class="step"><strong>Entrega</strong><span>Cuidamos tiempos, trato y estado del paquete.</span></div>
+      </section>
+
+      <section>
+        <h2>Con que trabajamos</h2>
+        <p class="lead">Nos integramos a las plataformas que ya usas.</p>
+        <div class="partners">
+          <div class="partner-logo">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <circle cx="32" cy="32" r="32" fill="#FFE600"/>
+              <g fill="#2D3277">
+                <rect x="9" y="27" width="28" height="11" rx="5.5" transform="rotate(-20 23 32.5)"/>
+                <rect x="27" y="27" width="28" height="11" rx="5.5" transform="rotate(20 41 32.5)"/>
+                <circle cx="32" cy="33" r="6"/>
+              </g>
+            </svg>
+            <span>Mercado Envios Flex</span>
+          </div>
+          <div class="partner-logo">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <rect x="12" y="12" width="40" height="40" rx="11" transform="rotate(45 32 32)" fill="none" stroke="#6a35c9" stroke-width="5"/>
+              <path d="M20 37 L32 25 L44 37" fill="none" stroke="#6a35c9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M20 47 L32 35 L44 47" fill="none" stroke="#6a35c9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>LightData</span>
+          </div>
+          <div class="partner-logo">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <path d="M19 41c-6.6 0-12-5.1-12-11.4 0-5.7 4.3-10.4 10-11.2C18.8 12 24.4 8 31 8c7.6 0 14 5.6 15.3 13 6 .9 10.7 6.1 10.7 12.4 0 6.9-5.8 11.6-12.7 11.6H19z" fill="#3fc78e"/>
+            </svg>
+            <span>tiendanube</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Confian en nosotros</h2>
+        <div class="partners">
+          <div class="partner-logo">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <circle cx="32" cy="32" r="30" fill="#0b3d91"/>
+              <circle cx="32" cy="32" r="30" fill="none" stroke="#9fd8ff" stroke-width="2.5"/>
+              <circle cx="32" cy="29" r="12" fill="#ffffff"/>
+              <path d="M32 19l3.6 7.2-3.6 4.4-3.6-4.4z M22.5 29.5l6.7-2.4 2.2 5.4-5.8 3.3z M41.5 29.5l-6.7-2.4-2.2 5.4 5.8 3.3z M26 41l6-3.4 6 3.4-2.2 5.6h-7.6z" fill="#0b3d91"/>
+            </svg>
+            <span>PlaySport Store</span>
+          </div>
+          <div class="partner-logo">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <defs>
+                <linearGradient id="coverGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#e02020"/>
+                  <stop offset="50%" stop-color="#ff9500"/>
+                  <stop offset="100%" stop-color="#ffd400"/>
+                </linearGradient>
+              </defs>
+              <circle cx="32" cy="32" r="21" fill="none" stroke="url(#coverGrad)" stroke-width="7" stroke-linecap="round" stroke-dasharray="3.5 7.5" transform="rotate(-50 32 32)"/>
+            </svg>
+            <span>Cover Up</span>
+          </div>
         </div>
       </section>
 
       <section>
         <h2>Ventajas competitivas</h2>
         <ul class="benefits">
-          <li><strong>Entregas en el dia:</strong> velocidad para responder a las expectativas actuales de compra.</li>
-          <li><strong>Atencion personalizada:</strong> contacto directo para resolver consultas y coordinar operaciones.</li>
-          <li><strong>Cobertura CABA y GBA:</strong> rutas adaptadas a zonas y necesidades comerciales.</li>
-          <li><strong>Trazabilidad operativa:</strong> seguimiento del estado de los envios durante el proceso.</li>
-          <li><strong>Responsabilidad y seguridad:</strong> cuidado de la mercaderia desde el retiro hasta la entrega.</li>
-          <li><strong>Precio-beneficio:</strong> propuestas pensadas para que la logistica sea un activo del negocio.</li>
+          <li><strong>Entregas en el dia</strong></li>
+          <li><strong>Atencion directa por WhatsApp</strong></li>
+          <li><strong>Cobertura CABA y GBA</strong></li>
+          <li><strong>Seguimiento con LightData</strong></li>
+          <li><strong>Cuidado de la mercaderia</strong></li>
+          <li><strong>Tarifas a medida</strong></li>
         </ul>
       </section>
 
       <section class="cta">
-        <h2>Una solucion para hacer crecer tu negocio</h2>
-        <p>Representamos tu marca frente al cliente final, por eso cuidamos cada detalle: tiempos, comunicacion, estado del paquete y resolucion ante imprevistos.</p>
+        <h2>Hagamos crecer tu negocio</h2>
+        <p>Cuidamos tiempos, comunicacion y estado de cada paquete, como si fuera nuestra propia marca.</p>
       </section>
 
       <section class="contact">

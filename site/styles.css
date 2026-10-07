@@ -978,6 +978,9 @@ h3 {
 }
 
 .client-badges span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   padding: 10px 20px;
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -986,6 +989,12 @@ h3 {
   font-weight: 900;
   font-size: 14px;
   white-space: nowrap;
+}
+
+.client-badges span svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
