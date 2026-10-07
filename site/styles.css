@@ -959,10 +959,25 @@ h3 {
   color: var(--white);
 }
 
-.partner-logo svg {
+.partner-logo svg,
+.partner-logo img {
   width: 38px;
   height: 38px;
   flex-shrink: 0;
+  object-fit: contain;
+}
+
+.partner-logo-tile img {
+  border-radius: 10px;
+}
+
+.partner-logo-wordmark {
+  padding: 14px 24px;
+}
+
+.partner-logo-wordmark img {
+  width: auto;
+  height: 28px;
 }
 
 .cards {
