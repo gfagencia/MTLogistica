@@ -22,7 +22,8 @@
       font-family: "Segoe UI", Arial, Helvetica, sans-serif;
       color: var(--white);
       background:
-        radial-gradient(circle at 82% 10%, rgba(56, 212, 48, .22), transparent 28rem),
+        radial-gradient(circle at 82% 8%, rgba(56, 212, 48, .32), transparent 30rem),
+        radial-gradient(circle at 10% 90%, rgba(58, 160, 230, .16), transparent 34rem),
         linear-gradient(180deg, #060806, #020302);
       line-height: 1.55;
     }
@@ -50,7 +51,8 @@
       border: 1px solid var(--line);
       border-radius: 34px;
       background:
-        linear-gradient(135deg, rgba(56, 212, 48, .16), rgba(255,255,255,.03)),
+        linear-gradient(135deg, rgba(56, 212, 48, .28), rgba(255,255,255,.04)),
+        radial-gradient(circle at 85% 20%, rgba(58, 160, 230, .22), transparent 60%),
         rgba(8, 11, 8, .92);
       overflow: hidden;
       box-shadow: 0 28px 90px rgba(0, 0, 0, .55);
@@ -58,13 +60,11 @@
 
     .cover-watermark {
       position: absolute;
-      top: 50%;
-      right: 4%;
-      width: 42%;
-      max-width: 320px;
-      transform: translateY(-50%) rotate(-6deg);
-      filter: invert(1);
-      opacity: .07;
+      top: 18%;
+      right: 40px;
+      width: 220px;
+      filter: invert(1) drop-shadow(0 0 20px rgba(138, 255, 111, .9)) drop-shadow(0 0 38px rgba(56, 212, 48, .6));
+      opacity: .34;
       pointer-events: none;
     }
 
@@ -252,7 +252,8 @@
     .benefits,
     .simple-list {
       display: grid;
-      gap: 10px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px 16px;
       margin: 0;
       padding: 0;
       list-style: none;
@@ -352,11 +353,11 @@
 
       .content {
         display: block;
-        padding: 14px 0 0;
+        padding: 10px 0 0;
       }
 
       .content > * + * {
-        margin-top: 10px;
+        margin-top: 8px;
       }
 
       section,
@@ -370,40 +371,40 @@
       }
 
       section {
-        padding: 16px 20px;
+        padding: 12px 18px;
       }
 
       .cover {
-        padding: 18px;
-        gap: 18px;
+        padding: 14px;
+        gap: 14px;
       }
 
       .logo-big {
-        width: 84px;
-        height: 84px;
+        width: 64px;
+        height: 64px;
       }
 
       h1 {
-        font-size: 34px;
-        margin-bottom: 6px;
+        font-size: 28px;
+        margin-bottom: 4px;
       }
 
       .slogan {
-        font-size: 14px;
+        font-size: 13px;
       }
 
       h2 {
-        font-size: 22px;
-        margin-bottom: 8px;
+        font-size: 19px;
+        margin-bottom: 6px;
       }
 
       .coverage-map-card {
-        margin-top: 6px;
+        margin-top: 4px;
       }
 
       .coverage-map-svg {
         width: calc(100% - 98px);
-        height: 180px;
+        height: 148px;
         margin-right: 10px;
         text-align: center;
       }
