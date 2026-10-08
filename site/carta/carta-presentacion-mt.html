@@ -3,519 +3,91 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Carta de Presentacion - Logistica MT</title>
+  <title>Carta de Presentación - Logística MT</title>
   <style>
+    /*
+      La carta son 4 hojas A4 apaisadas de tamaño fijo (297 x 210 mm).
+      En pantalla se escalan con zoom para entrar en el ancho; al imprimir van 1:1.
+      Por eso el enlace y el PDF se ven exactamente iguales.
+    */
     :root {
-      --black: #030503;
-      --panel: rgba(16, 21, 17, .86);
-      --line: rgba(204, 255, 210, .18);
+      --black: #040604;
+      --ink: #06130a;
+      --line: rgba(204, 255, 210, .16);
       --white: #f7fff7;
-      --muted: #a9b5aa;
+      --muted: #b4c2b5;
       --green: #38d430;
       --green-2: #8aff6f;
+      --z1: #3fe03a;
+      --z2: #ffd23f;
+      --z3: #1fd1b0;
+      --z4: #3ea6f2;
     }
 
     * { box-sizing: border-box; }
+
+    html { background: #020302; }
 
     body {
       margin: 0;
       font-family: "Segoe UI", Arial, Helvetica, sans-serif;
       color: var(--white);
-      background:
-        radial-gradient(circle at 82% 8%, rgba(56, 212, 48, .32), transparent 30rem),
-        radial-gradient(circle at 10% 90%, rgba(58, 160, 230, .16), transparent 34rem),
-        linear-gradient(180deg, #060806, #020302);
-      line-height: 1.55;
+      line-height: 1.45;
     }
 
-    .page {
-      position: relative;
-      width: min(1600px, 94%);
-      margin: 0 auto;
-      min-height: 100vh;
-      padding: 34px;
-      background-image:
-        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
-      background-size: 42px 42px;
-    }
+    h1, h2, h3, p, ul, ol { margin: 0; padding: 0; }
+    ul, ol { list-style: none; }
 
-    .cover {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 36px;
-      min-height: 280px;
-      padding: 40px;
-      border: 1px solid var(--line);
-      border-radius: 34px;
-      background:
-        linear-gradient(135deg, rgba(56, 212, 48, .28), rgba(255,255,255,.04)),
-        radial-gradient(circle at 85% 20%, rgba(58, 160, 230, .22), transparent 60%),
-        rgba(8, 11, 8, .92);
-      overflow: hidden;
-      box-shadow: 0 28px 90px rgba(0, 0, 0, .55);
-    }
+    /* ---------- Barra de acciones (solo pantalla) ---------- */
 
-    .cover-watermark {
-      position: absolute;
-      top: 18%;
-      right: 40px;
-      width: 220px;
-      filter: invert(1) drop-shadow(0 0 20px rgba(138, 255, 111, .9)) drop-shadow(0 0 38px rgba(56, 212, 48, .6));
-      opacity: .34;
-      pointer-events: none;
-    }
-
-    .logo {
-      width: 96px;
-      height: 96px;
-      object-fit: cover;
-      border: 1px solid rgba(138, 255, 111, .38);
-      border-radius: 22px;
-      box-shadow: 0 0 34px rgba(56, 212, 48, .34);
-      flex-shrink: 0;
-    }
-
-    .logo-big {
-      width: 150px;
-      height: 150px;
-      border-radius: 30px;
-    }
-
-    .cover-text {
-      text-align: center;
-    }
-
-    h1, h2, h3, p { margin-top: 0; }
-
-    h1 {
-      max-width: 600px;
-      margin-bottom: 10px;
-      font-size: 56px;
-      line-height: .98;
-      letter-spacing: 0;
-    }
-
-    .slogan {
-      color: var(--green-2);
-      font-size: 20px;
-      font-weight: 900;
-      margin-bottom: 0;
-    }
-
-    .lead {
-      max-width: 560px;
-      color: #d9e4d8;
-      font-size: 18px;
-    }
-
-    .lead-wide {
-      max-width: none;
-    }
-
-    .content {
-      display: grid;
-      gap: 18px;
-      padding: 28px 0 10px;
-    }
-
-    section {
-      padding: 26px;
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      background: var(--panel);
-      box-shadow: 0 18px 60px rgba(0, 0, 0, .25);
-    }
-
-    h2 {
-      color: var(--white);
-      font-size: 30px;
-      line-height: 1.08;
-      margin-bottom: 14px;
-    }
-
-    h2::before {
-      content: "";
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      margin-right: 10px;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 18px var(--green);
-      vertical-align: middle;
-    }
-
-    h3 {
-      color: var(--green-2);
-      font-size: 18px;
-      margin-bottom: 7px;
-    }
-
-    p {
-      color: #d4ded3;
-    }
-
-    .coverage-map-card {
-      margin-top: 10px;
-      font-size: 0;
-    }
-
-    .coverage-map-svg {
-      display: inline-block;
-      vertical-align: top;
-      width: calc(100% - 122px);
-      max-width: 360px;
-      margin-right: 14px;
-      border: 1px solid rgba(204, 255, 210, .16);
-      border-radius: 20px;
-      overflow: hidden;
-      background: #050805;
-    }
-
-    .coverage-map-svg img {
-      display: block;
-      width: 320px;
-      height: auto;
-      margin: 0 auto;
-    }
-
-    .coverage-mini-legend {
-      display: inline-grid;
-      vertical-align: top;
-      width: 108px;
-      gap: 8px;
-      padding-top: 4px;
-      font-size: 16px;
-    }
-
-    .coverage-mini-legend div {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      font-weight: 700;
-      color: #dce9dc;
-    }
-
-    .zone-swatch {
-      width: 14px;
-      height: 14px;
-      border-radius: 4px;
-      flex-shrink: 0;
-    }
-
-    .zone-swatch.zone1 { background: var(--green); }
-    .zone-swatch.zone2 { background: #f5c542; }
-    .zone-swatch.zone3 { background: var(--green-2); }
-    .zone-swatch.zone4 { background: #1a5b1d; }
-
-    .partners {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 14px;
-    }
-
-    .partner-logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 14px 20px;
-      border: 1px solid rgba(204, 255, 210, .14);
-      border-radius: 18px;
-      background: rgba(0, 0, 0, .24);
-      font-weight: 900;
-      font-size: 15px;
-      color: var(--white);
-    }
-
-    .partner-logo svg,
-    .partner-logo img {
-      width: 36px;
-      height: 36px;
-      flex-shrink: 0;
-      object-fit: contain;
-    }
-
-    .partner-logo-tile img {
-      border-radius: 9px;
-    }
-
-    .partner-logo-wordmark img {
-      width: auto;
-      height: 26px;
-    }
-
-    .benefits,
-    .simple-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 8px 16px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .benefits li,
-    .simple-list li {
-      position: relative;
-      padding-left: 20px;
-      color: #d4ded3;
-    }
-
-    .simple-list li {
-      color: var(--green-2);
-      font-weight: 900;
-    }
-
-    .benefits li::before,
-    .simple-list li::before {
-      content: "";
-      position: absolute;
-      top: 8px;
-      left: 0;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--green);
-    }
-
-    .two-col {
-      font-size: 0;
-    }
-
-    .two-col > section {
-      display: inline-block;
-      width: calc(50% - 9px);
-      vertical-align: top;
-      font-size: 16px;
-    }
-
-    .two-col > section:first-child {
-      margin-right: 18px;
-    }
-
-    .cta {
-      background:
-        linear-gradient(135deg, rgba(56, 212, 48, .18), rgba(255,255,255,.04)),
-        rgba(16, 21, 17, .9);
-    }
-
-    .contact {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-    }
-
-    .contact div {
-      padding: 16px;
-      border-radius: 18px;
-      background: rgba(0,0,0,.25);
-      color: var(--muted);
-    }
-
-    .contact strong {
-      display: block;
-      color: var(--green-2);
-      margin-bottom: 4px;
-    }
-
-    @media print {
-      @page {
-        size: A4 landscape;
-        margin: 0;
-      }
-
-      html,
-      body {
-        print-color-adjust: exact;
-        -webkit-print-color-adjust: exact;
-      }
-
-      body {
-        background:
-          radial-gradient(circle at 82% 10%, rgba(56, 212, 48, .22), transparent 28rem),
-          linear-gradient(180deg, #060806, #020302);
-      }
-
-      .page {
-        width: 100%;
-        min-height: 0;
-        padding: 10mm 12mm;
-      }
-
-      .cover {
-        min-height: 0;
-      }
-
-      .content {
-        display: block;
-        padding: 10px 0 0;
-      }
-
-      .content > * + * {
-        margin-top: 8px;
-      }
-
-      section,
-      .cover {
-        break-inside: avoid;
-      }
-
-      .actions,
-      .lead-banner {
-        display: none !important;
-      }
-
-      section {
-        padding: 12px 18px;
-      }
-
-      .cover {
-        padding: 14px;
-        gap: 14px;
-      }
-
-      .logo-big {
-        width: 64px;
-        height: 64px;
-      }
-
-      h1 {
-        font-size: 28px;
-        margin-bottom: 4px;
-      }
-
-      .slogan {
-        font-size: 13px;
-      }
-
-      h2 {
-        font-size: 19px;
-        margin-bottom: 6px;
-      }
-
-      .coverage-map-card {
-        margin-top: 4px;
-      }
-
-      .coverage-map-svg {
-        width: calc(100% - 98px);
-        height: 148px;
-        margin-right: 10px;
-        text-align: center;
-      }
-
-      .coverage-map-svg img {
-        display: inline-block;
-        width: auto;
-        height: 100%;
-        max-width: 100%;
-        object-fit: contain;
-      }
-
-      .coverage-mini-legend {
-        width: 88px;
-      }
-
-      .coverage-mini-legend div {
-        font-size: 10.5px;
-      }
-
-      .partners {
-        margin-top: 8px;
-        gap: 8px;
-      }
-
-      .partners-stack {
-        display: block;
-      }
-
-      .partners-stack .partner-logo {
-        margin-bottom: 8px;
-      }
-
-      .partner-logo {
-        padding: 8px 14px;
-      }
-
-      .benefits,
-      .simple-list {
-        gap: 6px;
-      }
-
-      .two-col > section:first-child {
-        margin-right: 10px;
-      }
-
-      .two-col > section {
-        width: calc(50% - 5px);
-      }
-    }
-
-    .lead-banner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 16px;
-      padding: 20px 24px;
-      border: 1px solid rgba(138, 255, 111, .4);
-      border-radius: 24px;
-      background: linear-gradient(135deg, rgba(56, 212, 48, .2), rgba(255, 255, 255, .04)), rgba(16, 21, 17, .95);
-      box-shadow: 0 0 40px rgba(56, 212, 48, .18);
-    }
-
-    .lead-banner[hidden] { display: none; }
-
-    .lead-banner strong {
-      display: block;
-      margin-bottom: 4px;
-      color: var(--green-2);
-      font-size: 20px;
-    }
-
-    .lead-banner p {
-      margin: 0;
-      color: #d4ded3;
-      max-width: 520px;
-    }
-
-    .lead-banner-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .actions {
+    .toolbar {
       position: sticky;
-      top: 16px;
+      top: 0;
       z-index: 5;
       display: flex;
       flex-wrap: wrap;
-      justify-content: flex-end;
+      align-items: center;
+      justify-content: space-between;
       gap: 10px;
-      margin-bottom: 16px;
+      padding: 12px 18px;
+      background: rgba(2, 3, 2, .9);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+
+    .toolbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--white);
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .toolbar-brand img {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
     }
 
     .action-btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 12px 20px;
+      padding: 10px 18px;
       border-radius: 999px;
       border: 1px solid var(--line);
-      background: rgba(8, 12, 8, .92);
-      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, .05);
       color: var(--white);
       font-weight: 900;
       font-size: 13px;
       text-decoration: none;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, .4);
     }
 
     .action-btn-whatsapp {
@@ -524,154 +96,849 @@
       border-color: transparent;
     }
 
-    @media (max-width: 760px) {
-      .page { width: 100%; padding: 16px; }
-      .contact {
-        grid-template-columns: 1fr;
+    .lead-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+      width: min(1120px, calc(100% - 32px));
+      margin: 16px auto 0;
+      padding: 18px 22px;
+      border: 1px solid rgba(138, 255, 111, .4);
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(56, 212, 48, .22), rgba(255, 255, 255, .04)), #0b120c;
+    }
+
+    .lead-banner[hidden] { display: none; }
+
+    .lead-banner strong {
+      display: block;
+      color: var(--green-2);
+      font-size: 19px;
+    }
+
+    .lead-banner p {
+      max-width: 560px;
+      color: #d4ded3;
+    }
+
+    .rotate-hint {
+      display: none;
+      margin: 12px 16px 0;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    /* ---------- Hojas ---------- */
+
+    .deck {
+      width: 297mm;
+      margin: 16px auto 28px;
+      zoom: var(--z, 1);
+    }
+
+    .page {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: 297mm;
+      height: 210mm;
+      margin-bottom: 18px;
+      padding: 40px 50px 0;
+      overflow: hidden;
+      border-radius: 14px;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, .6);
+      background:
+        radial-gradient(circle at 88% 6%, rgba(56, 212, 48, .2), transparent 420px),
+        radial-gradient(circle at 4% 100%, rgba(56, 212, 48, .12), transparent 380px),
+        repeating-linear-gradient(0deg, rgba(138, 255, 111, .06) 0 2px, transparent 2px 64px),
+        repeating-linear-gradient(90deg, rgba(138, 255, 111, .06) 0 2px, transparent 2px 64px),
+        repeating-linear-gradient(45deg, rgba(138, 255, 111, .035) 0 3px, transparent 3px 220px),
+        repeating-linear-gradient(-45deg, rgba(138, 255, 111, .035) 0 3px, transparent 3px 220px),
+        var(--black);
+    }
+
+    .page-body {
+      flex: 1;
+      min-height: 0;
+      display: grid;
+      gap: 26px;
+    }
+
+    .page-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 50px;
+      margin-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12.5px;
+      font-weight: 700;
+    }
+
+    .page-foot .foot-brand {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--white);
+      font-weight: 900;
+    }
+
+    .page-foot img {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .page-foot b { color: var(--green-2); }
+
+    .kicker {
+      display: inline-block;
+      color: var(--green-2);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin-top: 6px;
+      font-size: 42px;
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -.5px;
+    }
+
+    h2 em {
+      font-style: normal;
+      color: var(--green);
+    }
+
+    .lead {
+      margin-top: 10px;
+      color: #d6e2d6;
+      font-size: 17px;
+    }
+
+    .ico {
+      width: 24px;
+      height: 24px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ---------- Hoja 1: portada ---------- */
+
+    .page-cover { padding: 0; }
+
+    .cover-photo {
+      position: absolute;
+      inset: 0 0 0 54%;
+      background:
+        linear-gradient(180deg, rgba(4, 6, 4, 0) 55%, rgba(4, 6, 4, .5)),
+        url("../assets/fondo-portada.jpg") center / cover no-repeat;
+      clip-path: polygon(17% 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .cover-edge {
+      position: absolute;
+      inset: 0 0 0 54%;
+      background: linear-gradient(135deg, var(--green-2), var(--green));
+      clip-path: polygon(17% 0, 100% 0, 100% 100%, 0 100%);
+      transform: translateX(-10px);
+    }
+
+    .cover-logo {
+      position: absolute;
+      top: 50%;
+      left: 78.5%;
+      width: 310px;
+      transform: translate(-50%, -50%);
+      filter: drop-shadow(0 14px 26px rgba(0, 40, 0, .45));
+    }
+
+    .cover-content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 58%;
+      height: 100%;
+      padding: 0 0 0 58px;
+    }
+
+    .cover-badge {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 30px;
+    }
+
+    .cover-badge img {
+      width: 62px;
+      height: 62px;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 0 30px rgba(56, 212, 48, .45);
+    }
+
+    h1 {
+      font-size: 104px;
+      font-weight: 900;
+      line-height: .95;
+      letter-spacing: -3px;
+    }
+
+    h1 em {
+      font-style: normal;
+      color: var(--green);
+    }
+
+    .slogan {
+      max-width: 520px;
+      margin-top: 20px;
+      color: var(--green-2);
+      font-size: 25px;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .cover-copy {
+      max-width: 500px;
+      margin-top: 14px;
+      color: #d6e2d6;
+      font-size: 16.5px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      max-width: 560px;
+      margin-top: 34px;
+    }
+
+    .stats li {
+      padding: 14px 12px;
+      border: 1px solid rgba(138, 255, 111, .3);
+      border-radius: 16px;
+      background: rgba(10, 18, 11, .85);
+    }
+
+    .stats b {
+      display: block;
+      color: var(--green);
+      font-size: 27px;
+      font-weight: 900;
+      line-height: 1.1;
+    }
+
+    .stats span {
+      display: block;
+      margin-top: 3px;
+      color: #d6e2d6;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    /* ---------- Hoja 2: ventajas + servicios ---------- */
+
+    .body-why { grid-template-columns: 1fr 360px; }
+
+    .why { display: flex; flex-direction: column; }
+
+    .advantages {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-auto-rows: 1fr;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .advantages li {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(12, 19, 13, .9);
+    }
+
+    .advantages .ico-wrap {
+      display: grid;
+      place-items: center;
+      flex: 0 0 58px;
+      height: 58px;
+      border-radius: 17px;
+      background: linear-gradient(135deg, var(--green-2), var(--green));
+      color: var(--ink);
+    }
+
+    .advantages h3 {
+      color: var(--white);
+      font-size: 21px;
+      font-weight: 900;
+      line-height: 1.15;
+    }
+
+    .advantages p {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    .advantages .ico { width: 30px; height: 30px; }
+
+    .services {
+      display: flex;
+      flex-direction: column;
+      padding: 24px 20px 20px;
+      border-radius: 24px;
+      background: linear-gradient(165deg, #46e63f, #1c9b27);
+      color: var(--ink);
+      box-shadow: 0 20px 60px rgba(56, 212, 48, .25);
+    }
+
+    .services .kicker { color: #06350d; }
+
+    .services h2 {
+      color: var(--ink);
+      font-size: 34px;
+    }
+
+    .services ul {
+      flex: 1;
+      display: grid;
+      grid-auto-rows: 1fr;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .services li {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(4, 10, 5, .93);
+      color: var(--white);
+    }
+
+    .services li .ico { flex: 0 0 34px; height: 34px; color: var(--green-2); }
+
+    .services h3 {
+      font-size: 18.5px;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+
+    .services p {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    /* ---------- Hoja 3: zonas ---------- */
+
+    .body-zones { grid-template-columns: 520px 1fr; }
+
+    .map-panel {
+      display: grid;
+      place-items: center;
+      min-height: 0;
+      padding: 12px;
+      border: 1px solid rgba(110, 180, 255, .25);
+      border-radius: 24px;
+      background:
+        radial-gradient(ellipse 60% 55% at 88% 38%, rgba(62, 166, 242, .34), transparent 70%),
+        repeating-linear-gradient(0deg, rgba(160, 210, 255, .05) 0 1px, transparent 1px 38px),
+        repeating-linear-gradient(90deg, rgba(160, 210, 255, .05) 0 1px, transparent 1px 38px),
+        #050b12;
+    }
+
+    .map-panel img {
+      display: block;
+      width: auto;
+      height: 100%;
+      max-width: 100%;
+      min-height: 0;
+      object-fit: contain;
+    }
+
+    .zones { display: flex; flex-direction: column; min-height: 0; }
+
+    .zone-cards {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .zone-cards li {
+      --zc: var(--z1);
+      flex: 1 1 auto;
+      padding: 12px 16px 13px;
+      border: 1px solid var(--line);
+      border-left: 7px solid var(--zc);
+      border-radius: 16px;
+      background: rgba(12, 19, 13, .92);
+    }
+
+    .zone-cards li:nth-child(2) { --zc: var(--z2); }
+    .zone-cards li:nth-child(3) { --zc: var(--z3); }
+    .zone-cards li:nth-child(4) { --zc: var(--z4); }
+
+    .zone-cards h3 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--zc);
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .zone-cards h3 span {
+      padding: 2px 10px;
+      border-radius: 999px;
+      background: var(--zc);
+      color: var(--ink);
+      font-size: 12px;
+    }
+
+    .zone-cards p {
+      margin-top: 4px;
+      color: #dbe6db;
+      font-size: 13.5px;
+      line-height: 1.42;
+    }
+
+    /* ---------- Hoja 4: integraciones + cierre ---------- */
+
+    .body-close { grid-template-columns: 1fr 400px; }
+
+    .work { display: flex; flex-direction: column; min-height: 0; }
+
+    .partners {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .partners li {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(12, 19, 13, .92);
+    }
+
+    .partners .mark {
+      display: grid;
+      place-items: center;
+      flex: 0 0 128px;
+      height: 92px;
+      padding: 10px;
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .partners .mark img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .partners h3 { font-size: 19px; font-weight: 900; line-height: 1.2; }
+    .partners p { margin-top: 4px; color: var(--muted); font-size: 14px; line-height: 1.35; }
+
+    .steps-title {
+      margin-top: 26px;
+      font-size: 24px;
+      font-weight: 900;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+      counter-reset: step;
+    }
+
+    .steps li {
+      position: relative;
+      padding: 18px 16px 20px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(12, 19, 13, .92);
+      counter-increment: step;
+    }
+
+    .steps li::before {
+      content: counter(step);
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      margin-bottom: 12px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green-2), var(--green));
+      color: var(--ink);
+      font-size: 17px;
+      font-weight: 900;
+    }
+
+    .steps h3 { font-size: 16px; font-weight: 900; line-height: 1.2; }
+    .steps p { margin-top: 6px; color: var(--muted); font-size: 14px; line-height: 1.4; }
+
+    .promise {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      margin-top: 16px;
+      padding: 14px 24px;
+      border-left: 7px solid var(--green);
+      border-radius: 18px;
+      background: linear-gradient(90deg, rgba(56, 212, 48, .2), rgba(56, 212, 48, .03));
+      color: var(--white);
+      font-size: 21px;
+      font-weight: 800;
+      line-height: 1.3;
+    }
+
+    .promise em { font-style: normal; color: var(--green-2); }
+
+    .thanks {
+      display: flex;
+      flex-direction: column;
+      padding: 26px 24px 22px;
+      border-radius: 24px;
+      background: linear-gradient(165deg, #46e63f, #1c9b27);
+      color: var(--ink);
+      box-shadow: 0 20px 60px rgba(56, 212, 48, .25);
+    }
+
+    .thanks h2 {
+      margin-top: 0;
+      color: var(--ink);
+      font-size: 38px;
+    }
+
+    .thanks > p {
+      margin-top: 10px;
+      color: #062a0c;
+      font-size: 15.5px;
+      font-weight: 600;
+      line-height: 1.45;
+    }
+
+    .contact {
+      flex: 1;
+      display: grid;
+      grid-auto-rows: 1fr;
+      gap: 9px;
+      margin-top: 18px;
+    }
+
+    .contact li {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 10px 14px;
+      border-radius: 15px;
+      background: rgba(4, 10, 5, .93);
+      color: var(--white);
+    }
+
+    .contact .ico { flex: 0 0 24px; color: var(--green-2); }
+
+    .contact small {
+      display: block;
+      color: var(--green-2);
+      font-size: 11.5px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .contact b { font-size: 16.5px; font-weight: 800; }
+
+    /* ---------- Pantallas angostas: misma hoja, solo se achica ---------- */
+
+    @media (max-width: 760px) and (orientation: portrait) {
+      .rotate-hint { display: block; }
+    }
+
+    /* ---------- Impresión / PDF: hojas 1:1, sin nada de pantalla ---------- */
+
+    @page {
+      size: 297mm 210mm;
+      margin: 0;
+    }
+
+    @media print {
+      html, body {
+        background: var(--black);
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
       }
 
-      .two-col > section {
-        display: block;
-        width: 100%;
-        margin-right: 0;
+      .toolbar,
+      .lead-banner,
+      .rotate-hint { display: none !important; }
+
+      .deck {
+        zoom: 1 !important;
+        margin: 0;
       }
 
-      .coverage-map-svg {
-        display: block;
-        width: 100%;
-        margin-right: 0;
-        margin-bottom: 10px;
+      .page {
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+        break-after: page;
+        break-inside: avoid;
       }
 
-      .coverage-map-svg img {
-        width: 220px;
-      }
-
-      .coverage-mini-legend {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-        gap: 10px 16px;
-      }
-
-      .cover {
-        flex-direction: column;
-        min-height: auto;
-        padding: 26px 22px;
-        text-align: center;
-      }
-
-      h1 { font-size: 38px; }
+      .page:last-child { break-after: auto; }
     }
   </style>
 </head>
 <body>
-  <main class="page">
-    <div class="lead-banner" id="leadBanner" hidden>
-      <div>
-        <strong id="leadTitle">Recibimos tus datos</strong>
-        <p>Mira nuestra carta de presentacion. Cuando quieras, seguimos la charla por WhatsApp con tu consulta ya cargada.</p>
-      </div>
-      <div class="lead-banner-actions">
-        <a class="action-btn action-btn-whatsapp" id="leadWhatsapp" href="#">Continuar por WhatsApp</a>
-        <a class="action-btn" href="../index.html">Volver al sitio</a>
-      </div>
-    </div>
-    <div class="actions">
+  <div class="toolbar">
+    <a class="toolbar-brand" href="../index.html">
+      <img src="../assets/Logo MT.jpeg" alt="">
+      <span>Logística MT</span>
+    </a>
+    <div class="toolbar-actions">
+      <a class="action-btn" href="../index.html">Volver al sitio</a>
       <a class="action-btn" href="carta-presentacion-mt.pdf" download>Descargar PDF</a>
       <a class="action-btn action-btn-whatsapp" id="shareWhatsapp" href="#" target="_blank" rel="noopener">Compartir por WhatsApp</a>
     </div>
-    <header class="cover">
-      <img class="cover-watermark" src="../assets/logo-watermark.png" alt="" aria-hidden="true">
-      <img class="logo logo-big" src="../assets/Logo MT.jpeg" alt="Logo Logistica MT">
-      <div class="cover-text">
-        <h1>Logistica MT</h1>
-        <p class="slogan">Empresa logistica con mas de 5 anios de experiencia en el rubro.</p>
-      </div>
-    </header>
+  </div>
 
-    <div class="content">
-      <div class="two-col">
-        <section>
-          <h2>Servicios</h2>
-          <ul class="simple-list">
-            <li>Envios Flex y ultima milla</li>
-            <li>Mensajeria en moto</li>
-            <li>Autos para paqueteria</li>
-            <li>Mini-fletes</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2>Ventajas competitivas</h2>
-          <ul class="benefits">
-            <li><strong>Entregas en el dia</strong></li>
-            <li><strong>Atencion directa por WhatsApp</strong></li>
-            <li><strong>Cobertura CABA y GBA</strong></li>
-            <li><strong>Seguimiento del envio</strong></li>
-            <li><strong>Cuidado de la mercaderia</strong></li>
-            <li><strong>Tarifas a medida</strong></li>
-          </ul>
-        </section>
-      </div>
-
-      <div class="two-col">
-        <section>
-          <h2>Zonas que abarcamos</h2>
-          <p class="lead lead-wide">Cobertura en CABA y todo el GBA, organizada por zonas.</p>
-          <div class="coverage-map-card">
-            <div class="coverage-map-svg"><img src="../assets/mapa-cobertura-mt.png" alt="Mapa de cobertura de Logistica MT por zonas en CABA y AMBA"></div>
-            <div class="coverage-mini-legend">
-              <div><span class="zone-swatch zone1"></span>CABA</div>
-              <div><span class="zone-swatch zone2"></span>Zona 2</div>
-              <div><span class="zone-swatch zone3"></span>Zona 3</div>
-              <div><span class="zone-swatch zone4"></span>Zona 4</div>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h2>Con que trabajamos</h2>
-          <p class="lead lead-wide">Nos integramos a las plataformas que ya usas.</p>
-          <div class="partners partners-stack">
-            <div class="partner-logo">
-              <img src="../assets/logo-mercado-envios.png" alt="Mercado Envios Flex">
-              <span>Mercado Envios Flex</span>
-            </div>
-            <div class="partner-logo partner-logo-wordmark">
-              <img src="../assets/logo-tiendanube.png" alt="Tiendanube">
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <section class="cta">
-        <h2>Gracias por tu tiempo!</h2>
-        <p>Tu operacion, en movimiento: retiros programados, entregas en el dia, cobertura CABA/GBA y coordinacion directa por WhatsApp. Esperamos ser tu socio logistico.</p>
-      </section>
-
-      <section class="contact">
-        <div>
-          <strong>Email</strong>
-          contacto@logisticamt.com
-        </div>
-        <div>
-          <strong>WhatsApp</strong>
-          +54 11 2493-4095
-        </div>
-        <div>
-          <strong>Instagram</strong>
-          @logiistica
-        </div>
-        <div>
-          <strong>Propuesta</strong>
-          Cotizacion a medida
-        </div>
-      </section>
+  <div class="lead-banner" id="leadBanner" hidden>
+    <div>
+      <strong id="leadTitle">Recibimos tus datos</strong>
+      <p>Mirá nuestra carta de presentación. Cuando quieras, seguimos la charla por WhatsApp con tu consulta ya cargada.</p>
     </div>
+    <a class="action-btn action-btn-whatsapp" id="leadWhatsapp" href="#">Continuar por WhatsApp</a>
+  </div>
+
+  <p class="rotate-hint">Girá el teléfono para ver la carta más grande, o descargá el PDF.</p>
+
+  <main class="deck" id="deck">
+    <!-- Hoja 1: portada -->
+    <section class="page page-cover">
+      <div class="cover-edge" aria-hidden="true"></div>
+      <div class="cover-photo" aria-hidden="true"></div>
+      <img class="cover-logo" src="../assets/logo-mt.png" alt="Logo MT Logística">
+      <div class="cover-content">
+        <div class="cover-badge">
+          <img src="../assets/Logo MT.jpeg" alt="">
+          <span class="kicker">Carta de presentación</span>
+        </div>
+        <h1>Logística <em>MT</em></h1>
+        <p class="slogan">Empresa logística con más de 5 años de experiencia en el rubro.</p>
+        <p class="cover-copy">Servicio integral de mensajería en moto, autos y mini-fletes para comercios, empresas y vendedores de CABA y GBA.</p>
+        <ul class="stats">
+          <li><b>+5</b><span>años en el rubro</span></li>
+          <li><b>48</b><span>barrios de CABA</span></li>
+          <li><b>38</b><span>partidos del GBA</span></li>
+          <li><b>4</b><span>zonas de cobertura</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Hoja 2: ventajas + servicios -->
+    <section class="page">
+      <div class="page-body body-why">
+        <div class="why">
+          <span class="kicker">Por qué elegirnos</span>
+          <h2>Ventajas <em>competitivas</em></h2>
+          <ul class="advantages">
+            <li>
+              <span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
+              <div><h3>Entregas en el día</h3><p>Velocidad para responder a lo que hoy espera quien compra.</p></div>
+            </li>
+            <li>
+              <span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>
+              <div><h3>Atención directa por WhatsApp</h3><p>Hablás con quien coordina tu envío, sin intermediarios.</p></div>
+            </li>
+            <li>
+              <span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+              <div><h3>Cobertura CABA y GBA</h3><p>Rutas adaptadas a cada zona y a tu necesidad comercial.</p></div>
+            </li>
+            <li>
+              <span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg></span>
+              <div><h3>Seguimiento del envío</h3><p>Sabés en qué estado está cada pedido durante el recorrido.</p></div>
+            </li>
+            <li>
+              <span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+              <div><h3>Cuidado de la mercadería</h3><p>Responsabilidad desde el retiro hasta la entrega.</p></div>
+            </li>
+            <li>
+              <span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>
+              <div><h3>Tarifas a medida</h3><p>Propuestas según zonas, volumen y frecuencia de retiro.</p></div>
+            </li>
+          </ul>
+        </div>
+
+        <aside class="services">
+          <span class="kicker">Qué hacemos</span>
+          <h2>Servicios</h2>
+          <ul>
+            <li>
+              <svg class="ico" viewBox="0 0 24 24"><circle cx="5.5" cy="17" r="3.5"/><circle cx="18.5" cy="17" r="3.5"/><path d="M5.5 17l4-7h5l4 7M9.5 10L8 7H6M14.5 10l2-4H19"/></svg>
+              <div><h3>Mensajería en moto</h3><p>Trámites, documentación y paquetes chicos.</p></div>
+            </li>
+            <li>
+              <svg class="ico" viewBox="0 0 24 24"><path d="M3 13l2-5.5A2 2 0 0 1 6.9 6h10.2a2 2 0 0 1 1.9 1.5L21 13v5h-3v-2H6v2H3z"/><circle cx="7" cy="13.5" r="1"/><circle cx="17" cy="13.5" r="1"/></svg>
+              <div><h3>Autos para paquetería</h3><p>Paquetes medianos con mayor resguardo.</p></div>
+            </li>
+            <li>
+              <svg class="ico" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              <div><h3>Mini-fletes</h3><p>Cajas, bultos y pedidos voluminosos.</p></div>
+            </li>
+            <li>
+              <svg class="ico" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+              <div><h3>Envíos Flex y última milla</h3><p>E-commerce y tiendas online, en el día.</p></div>
+            </li>
+          </ul>
+        </aside>
+      </div>
+      <footer class="page-foot">
+        <span class="foot-brand"><img src="../assets/Logo MT.jpeg" alt="">Logística MT</span>
+        <span>WhatsApp <b>+54 11 2493-4095</b> · Instagram <b>@logiistica</b> · 2 / 4</span>
+      </footer>
+    </section>
+
+    <!-- Hoja 3: zonas -->
+    <section class="page">
+      <div class="page-body body-zones">
+        <div class="map-panel">
+          <img src="../assets/mapa-cobertura.svg" alt="Mapa de cobertura de Logística MT por zonas en CABA y GBA">
+        </div>
+        <div class="zones">
+          <span class="kicker">Cobertura</span>
+          <h2>Zonas que <em>abarcamos</em></h2>
+          <p class="lead">CABA y todo el GBA, organizados en cuatro zonas.</p>
+          <ul class="zone-cards">
+            <li>
+              <h3>CABA <span>48 barrios</span></h3>
+              <p>Toda la Ciudad Autónoma de Buenos Aires, de Núñez a La Boca y de Liniers a Puerto Madero.</p>
+            </li>
+            <li>
+              <h3>Zona 2 <span>8 partidos</span></h3>
+              <p>Vicente López, San Martín, Tres de Febrero, Morón, La Matanza, Lomas de Zamora, Lanús, Avellaneda.</p>
+            </li>
+            <li>
+              <h3>Zona 3 <span>15 partidos</span></h3>
+              <p>San Isidro, San Fernando, Tigre, San Miguel, José C. Paz, Malvinas Argentinas, Hurlingham, Ituzaingó, Merlo, Moreno, Ezeiza, Esteban Echeverría, Quilmes, Almirante Brown, Berazategui.</p>
+            </li>
+            <li>
+              <h3>Zona 4 <span>15 partidos</span></h3>
+              <p>Zárate, Campana, Escobar, Pilar, Luján, Gral. Rodríguez, Marcos Paz, Cañuelas, San Vicente, Pte. Perón, Brandsen, La Plata, Ensenada, Berisso, Florencio Varela.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <footer class="page-foot">
+        <span class="foot-brand"><img src="../assets/Logo MT.jpeg" alt="">Logística MT</span>
+        <span>WhatsApp <b>+54 11 2493-4095</b> · Instagram <b>@logiistica</b> · 3 / 4</span>
+      </footer>
+    </section>
+
+    <!-- Hoja 4: integraciones + cierre -->
+    <section class="page">
+      <div class="page-body body-close">
+        <div class="work">
+          <span class="kicker">Integraciones</span>
+          <h2>Con qué <em>trabajamos</em></h2>
+          <p class="lead">Nos integramos a las plataformas que ya usás.</p>
+          <ul class="partners">
+            <li>
+              <span class="mark"><img src="../assets/logo-mercado-envios.png" alt="Mercado Envíos Flex"></span>
+              <div><h3>Mercado Envíos Flex</h3><p>Tus ventas Flex, entregadas en el día.</p></div>
+            </li>
+            <li>
+              <span class="mark"><img src="../assets/logo-tiendanube.png" alt="Tiendanube"></span>
+              <div><h3>Tiendanube</h3><p>Los pedidos de tu tienda online, en ruta.</p></div>
+            </li>
+          </ul>
+          <h3 class="steps-title">Del retiro a la entrega, todo ordenado</h3>
+          <ol class="steps">
+            <li><h3>Recolección</h3><p>Llegamos al punto de retiro acordado.</p></li>
+            <li><h3>Armado de ruta</h3><p>Organizamos por zona, prioridad y recorrido.</p></li>
+            <li><h3>Coordinación</h3><p>Contacto directo para resolver novedades.</p></li>
+            <li><h3>Entrega</h3><p>Cerramos cada envío cuidando los tiempos.</p></li>
+          </ol>
+          <p class="promise"><span>Nos ocupamos de tus envíos para que vos puedas enfocarte en <em>vender, crecer y atender tu negocio.</em></span></p>
+        </div>
+
+        <aside class="thanks">
+          <h2>¡Gracias por tu tiempo!</h2>
+          <p>Tu operación, en movimiento. Esperamos ser tu socio logístico.</p>
+          <ul class="contact">
+            <li>
+              <svg class="ico" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              <div><small>WhatsApp</small><b>+54 11 2493-4095</b></div>
+            </li>
+            <li>
+              <svg class="ico" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              <div><small>Instagram</small><b>@logiistica</b></div>
+            </li>
+            <li>
+              <svg class="ico" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22 6 12 13 2 6"/></svg>
+              <div><small>Email</small><b>contacto@logisticamt.com</b></div>
+            </li>
+            <li>
+              <svg class="ico" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+              <div><small>Propuesta</small><b>Cotización a medida</b></div>
+            </li>
+          </ul>
+        </aside>
+      </div>
+      <footer class="page-foot">
+        <span class="foot-brand"><img src="../assets/Logo MT.jpeg" alt="">Logística MT</span>
+        <span>WhatsApp <b>+54 11 2493-4095</b> · Instagram <b>@logiistica</b> · 4 / 4</span>
+      </footer>
+    </section>
   </main>
+
   <script src="../config.js"></script>
   <script>
+    (function () {
+      // Escala las hojas A4 al ancho disponible (en el PDF van 1:1)
+      var deck = document.getElementById("deck");
+      function fit() {
+        var probe = document.createElement("div");
+        probe.style.cssText = "position:absolute;visibility:hidden;width:297mm";
+        document.body.appendChild(probe);
+        var pageWidth = probe.getBoundingClientRect().width;
+        document.body.removeChild(probe);
+        var z = Math.min(1.6, (document.documentElement.clientWidth - 32) / pageWidth);
+        deck.style.setProperty("--z", z.toFixed(4));
+      }
+      fit();
+      window.addEventListener("resize", fit);
+    })();
     (function () {
       var lead = null;
       try { lead = JSON.parse(sessionStorage.getItem("mtLead") || "null"); } catch (e) {}
@@ -679,7 +946,7 @@
       if (lead && lead.mensaje && banner) {
         var phone = (window.MT_CONFIG && window.MT_CONFIG.companyWhatsapp) || "5491124934095";
         document.getElementById("leadWhatsapp").href = "https://wa.me/" + phone + "?text=" + encodeURIComponent(lead.mensaje);
-        if (lead.nombre) document.getElementById("leadTitle").textContent = "Gracias, " + lead.nombre + "! Recibimos tus datos";
+        if (lead.nombre) document.getElementById("leadTitle").textContent = "¡Gracias, " + lead.nombre + "! Recibimos tus datos";
         banner.hidden = false;
       }
     })();
@@ -687,7 +954,7 @@
       var link = document.getElementById("shareWhatsapp");
       if (!link) return;
       var pdfUrl = new URL("carta-presentacion-mt.pdf", window.location.href).href;
-      var text = "Hola! Te comparto la carta de presentacion de Logistica MT: " + pdfUrl;
+      var text = "¡Hola! Te comparto la carta de presentación de Logística MT: " + pdfUrl;
       link.href = "https://wa.me/?text=" + encodeURIComponent(text);
     })();
   </script>

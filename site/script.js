@@ -167,12 +167,26 @@
 
   if (mapContainer && mapImage && mapTooltip) {
     const mapTargets = mapImage.querySelectorAll(".area");
+    const mapHighlight = mapImage.querySelector(".area-highlight");
+    const zoneItems = mapContainer.querySelectorAll(".zone-item");
+    let pinnedZone = null;
+
+    function setActiveZone(zone) {
+      if (zone) mapContainer.setAttribute("data-active-zone", zone);
+      else mapContainer.removeAttribute("data-active-zone");
+    }
 
     function showMapTooltip(target, event) {
       const name = target.getAttribute("data-name");
       const zone = target.getAttribute("data-zone");
       if (!name) return;
-      mapTooltip.innerHTML = `${name}<span class="tooltip-zone">${zone || ""}</span>`;
+      mapTooltip.textContent = name;
+      const zoneLine = document.createElement("span");
+      zoneLine.className = "tooltip-zone";
+      zoneLine.textContent = zone || "";
+      mapTooltip.appendChild(zoneLine);
+      mapTooltip.setAttribute("data-zone", target.getAttribute("data-zone-id") || "");
+      if (mapHighlight) mapHighlight.setAttribute("d", target.getAttribute("d"));
       moveMapTooltip(event);
       mapTooltip.classList.add("is-visible");
     }
@@ -180,14 +194,19 @@
     function moveMapTooltip(event) {
       const rect = mapContainer.getBoundingClientRect();
       const point = event.touches ? event.touches[0] : event;
-      const x = point.clientX - rect.left;
-      const y = point.clientY - rect.top;
-      mapTooltip.style.left = `${x}px`;
-      mapTooltip.style.top = `${y}px`;
+      if (point.clientX === undefined) {
+        const box = event.target.getBoundingClientRect();
+        mapTooltip.style.left = `${box.left + box.width / 2 - rect.left}px`;
+        mapTooltip.style.top = `${box.top - rect.top}px`;
+        return;
+      }
+      mapTooltip.style.left = `${point.clientX - rect.left}px`;
+      mapTooltip.style.top = `${point.clientY - rect.top}px`;
     }
 
     function hideMapTooltip() {
       mapTooltip.classList.remove("is-visible");
+      if (mapHighlight) mapHighlight.setAttribute("d", "");
     }
 
     mapTargets.forEach((target) => {
@@ -206,6 +225,23 @@
     });
 
     mapImage.addEventListener("touchend", hideMapTooltip);
+
+    zoneItems.forEach((item) => {
+      const zone = item.getAttribute("data-zone-id");
+      item.addEventListener("mouseenter", () => setActiveZone(zone));
+      item.addEventListener("mouseleave", () => setActiveZone(pinnedZone));
+      item.addEventListener("toggle", () => {
+        if (item.open) {
+          zoneItems.forEach((other) => {
+            if (other !== item) other.open = false;
+          });
+          pinnedZone = zone;
+        } else if (pinnedZone === zone) {
+          pinnedZone = null;
+        }
+        setActiveZone(pinnedZone);
+      });
+    });
   }
 
   function buildLeadPayload() {
@@ -222,11 +258,11 @@
 
   function buildWhatsappMessage(payload) {
     return (
-      `Hola! Quiero cotizar un envio.\n\n` +
+      `Hola! Quiero cotizar un envío.\n\n` +
       `Nombre: ${payload.nombre}\n` +
       `Empresa: ${payload.empresa}\n` +
       `Correo: ${payload.correo}\n` +
-      `Telefono: ${payload.telefono}\n` +
+      `Teléfono: ${payload.telefono}\n` +
       `Servicio: ${payload.servicio}\n` +
       `Mensaje: ${payload.mensaje}`
     );
@@ -244,7 +280,7 @@
     } catch (error) {}
 
     status.className = "form-status ok";
-    status.textContent = "Te llevamos a la carta de presentacion...";
+    status.textContent = "Te llevamos a la carta de presentación...";
     form.reset();
     window.location.href = "carta/carta-presentacion-mt.html?enviado=1";
   });
