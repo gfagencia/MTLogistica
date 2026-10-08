@@ -41,7 +41,7 @@
 
     .page {
       position: relative;
-      width: min(1040px, 100%);
+      width: min(1600px, 94%);
       margin: 0 auto;
       min-height: 100vh;
       padding: 34px;
@@ -163,21 +163,19 @@
       display: inline-block;
       vertical-align: top;
       width: calc(100% - 122px);
-      height: 380px;
+      max-width: 360px;
       margin-right: 14px;
       border: 1px solid rgba(204, 255, 210, .16);
       border-radius: 20px;
       overflow: hidden;
       background: #050805;
-      text-align: center;
     }
 
     .coverage-map-svg img {
-      display: inline-block;
-      height: 100%;
-      width: auto;
-      max-width: 100%;
-      object-fit: contain;
+      display: block;
+      width: 320px;
+      height: auto;
+      margin: 0 auto;
     }
 
     .coverage-mini-legend {
@@ -396,8 +394,17 @@
 
       .coverage-map-svg {
         width: calc(100% - 98px);
-        height: 230px;
+        height: 180px;
         margin-right: 10px;
+        text-align: center;
+      }
+
+      .coverage-map-svg img {
+        display: inline-block;
+        width: auto;
+        height: 100%;
+        max-width: 100%;
+        object-fit: contain;
       }
 
       .coverage-mini-legend {
@@ -508,7 +515,7 @@
     }
 
     @media (max-width: 760px) {
-      .page { padding: 16px; }
+      .page { width: 100%; padding: 16px; }
       .contact {
         grid-template-columns: 1fr;
       }
@@ -524,6 +531,10 @@
         width: 100%;
         margin-right: 0;
         margin-bottom: 10px;
+      }
+
+      .coverage-map-svg img {
+        width: 220px;
       }
 
       .coverage-mini-legend {
