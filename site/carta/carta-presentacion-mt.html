@@ -27,24 +27,16 @@
       line-height: 1.55;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
-      background-size: 42px 42px;
-      opacity: .45;
-    }
-
     .page {
       position: relative;
       width: min(1600px, 94%);
       margin: 0 auto;
       min-height: 100vh;
       padding: 34px;
+      background-image:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 42px 42px;
     }
 
     .cover {
@@ -62,6 +54,18 @@
         rgba(8, 11, 8, .92);
       overflow: hidden;
       box-shadow: 0 28px 90px rgba(0, 0, 0, .55);
+    }
+
+    .cover-watermark {
+      position: absolute;
+      top: 50%;
+      right: 4%;
+      width: 42%;
+      max-width: 320px;
+      transform: translateY(-50%) rotate(-6deg);
+      filter: invert(1);
+      opacity: .07;
+      pointer-events: none;
     }
 
     .logo {
@@ -326,9 +330,14 @@
 
       html,
       body {
-        background: #030503;
         print-color-adjust: exact;
         -webkit-print-color-adjust: exact;
+      }
+
+      body {
+        background:
+          radial-gradient(circle at 82% 10%, rgba(56, 212, 48, .22), transparent 28rem),
+          linear-gradient(180deg, #060806, #020302);
       }
 
       .page {
@@ -572,6 +581,7 @@
       <a class="action-btn action-btn-whatsapp" id="shareWhatsapp" href="#" target="_blank" rel="noopener">Compartir por WhatsApp</a>
     </div>
     <header class="cover">
+      <img class="cover-watermark" src="../assets/logo-watermark.png" alt="" aria-hidden="true">
       <img class="logo logo-big" src="../assets/Logo MT.jpeg" alt="Logo Logistica MT">
       <div class="cover-text">
         <h1>Logistica MT</h1>

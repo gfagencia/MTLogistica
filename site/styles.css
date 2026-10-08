@@ -1121,11 +1121,25 @@ h3 {
   overflow: hidden;
   border: 1px solid rgba(138, 255, 111, .18);
   background:
-    radial-gradient(ellipse 70% 60% at 88% 14%, rgba(58, 150, 220, .18), transparent 55%),
-    radial-gradient(ellipse 60% 55% at 92% 80%, rgba(58, 150, 220, .13), transparent 60%),
-    radial-gradient(ellipse 65% 55% at 18% 15%, rgba(56, 212, 48, .1), transparent 60%),
+    radial-gradient(ellipse 75% 65% at 85% 18%, rgba(58, 150, 220, .24), transparent 55%),
+    radial-gradient(ellipse 65% 60% at 90% 80%, rgba(58, 150, 220, .17), transparent 60%),
+    radial-gradient(ellipse 65% 55% at 16% 12%, rgba(56, 212, 48, .14), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(138, 255, 111, .035) 0 1px, transparent 1px 42px),
+    repeating-linear-gradient(90deg, rgba(138, 255, 111, .035) 0 1px, transparent 1px 42px),
     #050805;
   box-shadow: inset 0 0 60px rgba(0, 0, 0, .55);
+}
+
+.coverage-watermark {
+  position: absolute;
+  top: 46%;
+  right: 24px;
+  width: 170px;
+  transform: translateY(-50%);
+  filter: invert(1);
+  opacity: .1;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .coverage-svg {
