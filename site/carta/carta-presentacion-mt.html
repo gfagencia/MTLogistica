@@ -150,14 +150,8 @@
       overflow: hidden;
       border-radius: 14px;
       box-shadow: 0 24px 70px rgba(0, 0, 0, .6);
-      background:
-        radial-gradient(circle at 88% 6%, rgba(56, 212, 48, .2), transparent 420px),
-        radial-gradient(circle at 4% 100%, rgba(56, 212, 48, .12), transparent 380px),
-        repeating-linear-gradient(0deg, rgba(138, 255, 111, .06) 0 2px, transparent 2px 64px),
-        repeating-linear-gradient(90deg, rgba(138, 255, 111, .06) 0 2px, transparent 2px 64px),
-        repeating-linear-gradient(45deg, rgba(138, 255, 111, .035) 0 3px, transparent 3px 220px),
-        repeating-linear-gradient(-45deg, rgba(138, 255, 111, .035) 0 3px, transparent 3px 220px),
-        var(--black);
+      /* El fondo (grilla + brillos) es una imagen: como degradados CSS el PDF quedaba muy pesado de dibujar */
+      background: var(--black) url("../assets/carta-fondo.jpg") center / 100% 100% no-repeat;
     }
 
     .page-body {
@@ -261,7 +255,6 @@
       left: 78.5%;
       width: 310px;
       transform: translate(-50%, -50%);
-      filter: drop-shadow(0 14px 26px rgba(0, 40, 0, .45));
     }
 
     .cover-content {
@@ -461,11 +454,7 @@
       padding: 12px;
       border: 1px solid rgba(110, 180, 255, .25);
       border-radius: 24px;
-      background:
-        radial-gradient(ellipse 60% 55% at 88% 38%, rgba(62, 166, 242, .34), transparent 70%),
-        repeating-linear-gradient(0deg, rgba(160, 210, 255, .05) 0 1px, transparent 1px 38px),
-        repeating-linear-gradient(90deg, rgba(160, 210, 255, .05) 0 1px, transparent 1px 38px),
-        #050b12;
+      background: radial-gradient(ellipse 60% 55% at 88% 38%, #0f2f4d, #050b12 70%);
     }
 
     .map-panel img {
@@ -717,6 +706,9 @@
       }
 
       .page:last-child { break-after: auto; }
+
+      /* Las sombras difusas son lo mas lento de dibujar en un visor de PDF */
+      * { box-shadow: none !important; }
     }
   </style>
 </head>
