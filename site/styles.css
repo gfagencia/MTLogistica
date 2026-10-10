@@ -184,6 +184,24 @@ button, input, select, textarea { font: inherit; }
   opacity: .86;
 }
 
+/* Logo completo como marca de agua, entre el titulo y el panel */
+.hero-bg::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  width: min(34vw, 520px);
+  aspect-ratio: 727 / 669;
+  transform: translate(-50%, -50%);
+  background: url("assets/logo-mt-blanco.png") center / contain no-repeat;
+  opacity: .2;
+}
+
+/* Solo cuando hay lugar: en pantallas mas chicas quedaria tapado por el titulo y el panel */
+@media (max-width: 1499px) {
+  .hero-bg::before { display: none; }
+}
+
 .hero-bg::after {
   content: "";
   position: absolute;
