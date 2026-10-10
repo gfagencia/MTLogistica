@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
   <title>Carta de Presentación - Logística MT</title>
   <style>
     /*
@@ -26,11 +27,16 @@
 
     * { box-sizing: border-box; }
 
-    html { background: #020302; }
+    html {
+      background: #020302;
+      /* Sin esto el iPhone agranda el texto por su cuenta y desarma las hojas */
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
 
     body {
       margin: 0;
-      font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+      font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, Helvetica, sans-serif;
       color: var(--white);
       line-height: 1.45;
     }
@@ -133,10 +139,15 @@
 
     /* ---------- Hojas ---------- */
 
+    .deck-wrap {
+      margin: 16px auto 28px;
+      overflow: hidden;
+    }
+
     .deck {
       width: 297mm;
-      margin: 16px auto 28px;
-      zoom: var(--z, 1);
+      transform: scale(var(--z, 1));
+      transform-origin: 0 0;
     }
 
     .page {
@@ -692,10 +703,14 @@
       .lead-banner,
       .rotate-hint { display: none !important; }
 
-      .deck {
-        zoom: 1 !important;
+      .deck-wrap {
+        width: auto !important;
+        height: auto !important;
         margin: 0;
+        overflow: visible;
       }
+
+      .deck { transform: none !important; }
 
       .page {
         margin: 0;
@@ -735,6 +750,7 @@
 
   <p class="rotate-hint">Girá el teléfono para ver la carta más grande, o descargá el PDF.</p>
 
+  <div class="deck-wrap" id="deckWrap">
   <main class="deck" id="deck">
     <!-- Hoja 1: portada -->
     <section class="page page-cover">
@@ -913,23 +929,25 @@
       </footer>
     </section>
   </main>
+  </div>
 
   <script src="../config.js"></script>
   <script>
     (function () {
-      // Escala las hojas A4 al ancho disponible (en el PDF van 1:1)
+      // Escala las hojas A4 al ancho disponible (en el PDF van 1:1).
+      // Se usa transform y no zoom porque Safari en iPhone no escala bien el texto con zoom.
       var deck = document.getElementById("deck");
+      var wrap = document.getElementById("deckWrap");
       function fit() {
-        var probe = document.createElement("div");
-        probe.style.cssText = "position:absolute;visibility:hidden;width:297mm";
-        document.body.appendChild(probe);
-        var pageWidth = probe.getBoundingClientRect().width;
-        document.body.removeChild(probe);
-        var z = Math.min(1.6, (document.documentElement.clientWidth - 32) / pageWidth);
+        var pageWidth = deck.offsetWidth;
+        var z = Math.min(1.6, (document.documentElement.clientWidth - 24) / pageWidth);
         deck.style.setProperty("--z", z.toFixed(4));
+        wrap.style.width = Math.floor(pageWidth * z) + "px";
+        wrap.style.height = Math.ceil(deck.offsetHeight * z) + "px";
       }
       fit();
       window.addEventListener("resize", fit);
+      window.addEventListener("load", fit);
     })();
     (function () {
       var lead = null;
