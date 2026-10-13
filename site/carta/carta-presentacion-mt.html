@@ -19,10 +19,10 @@
       --muted: #b4c2b5;
       --green: #38d430;
       --green-2: #8aff6f;
-      --z1: #3fe03a;
-      --z2: #ffd23f;
-      --z3: #1fd1b0;
-      --z4: #3ea6f2;
+      --z1: #03e402;
+      --z2: #eed407;
+      --z3: #c1ee6a;
+      --z4: #6fa501;
     }
 
     * { box-sizing: border-box; }
@@ -456,16 +456,16 @@
 
     /* ---------- Hoja 3: zonas ---------- */
 
-    .body-zones { grid-template-columns: 520px 1fr; }
+    .body-zones { grid-template-columns: 590px 1fr; }
 
     .map-panel {
       display: grid;
       place-items: center;
       min-height: 0;
       padding: 12px;
-      border: 1px solid rgba(110, 180, 255, .25);
+      border: 1px solid var(--line);
       border-radius: 24px;
-      background: radial-gradient(ellipse 60% 55% at 88% 38%, #0f2f4d, #050b12 70%);
+      background: radial-gradient(ellipse 70% 60% at 50% 45%, #10300f, #070c08 75%);
     }
 
     .map-panel img {
@@ -562,6 +562,34 @@
       max-width: 100%;
       max-height: 100%;
       object-fit: contain;
+    }
+
+
+    .flex-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      flex: 0 0 auto;
+      width: 96px;
+      height: 96px;
+      border-radius: 24px;
+      background: #ffe600;
+    }
+    
+    .flex-icon img {
+      width: 74%;
+      height: auto;
+    }
+    
+    .flex-icon span {
+      color: #2d3277;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 17px;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: .5px;
     }
 
     .partners h3 { font-size: 19px; font-weight: 900; line-height: 1.2; }
@@ -841,7 +869,7 @@
     <section class="page">
       <div class="page-body body-zones">
         <div class="map-panel">
-          <img src="../assets/mapa-cobertura.svg" alt="Mapa de cobertura de Logística MT por zonas en CABA y GBA">
+          <img src="../assets/mapa-zonas.webp" alt="Mapa de cobertura de Logística MT por zonas en CABA y GBA">
         </div>
         <div class="zones">
           <span class="kicker">Cobertura</span>
@@ -882,7 +910,7 @@
           <p class="lead">Nos integramos a las plataformas que ya usás.</p>
           <ul class="partners">
             <li>
-              <span class="mark"><img src="../assets/logo-mercado-envios.png" alt="Mercado Envíos Flex"></span>
+              <div class="flex-icon" role="img" aria-label="Envíos Flex de Mercado Libre"><img src="../assets/logo-mercado-envios.png" alt=""><span>FLEX</span></div>
               <div><h3>Mercado Envíos Flex</h3><p>Tus ventas Flex, entregadas en el día.</p></div>
             </li>
             <li>

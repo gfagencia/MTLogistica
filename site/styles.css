@@ -966,6 +966,33 @@ h3 {
   background: #ffffff;
 }
 
+.flex-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  flex: 0 0 auto;
+  width: 96px;
+  height: 96px;
+  border-radius: 24px;
+  background: #ffe600;
+}
+
+.flex-icon img {
+  width: 74%;
+  height: auto;
+}
+
+.flex-icon span {
+  color: #2d3277;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: .5px;
+}
+
 .partner-mark img {
   max-width: 100%;
   max-height: 100%;
@@ -986,6 +1013,8 @@ h3 {
   .partners { grid-template-columns: 1fr; }
   .partner-card { padding: 20px; gap: 16px; }
   .partner-mark { width: 104px; height: 72px; }
+  .flex-icon { width: 76px; height: 76px; border-radius: 19px; }
+  .flex-icon span { font-size: 13.5px; }
 }
 
 .cards {
@@ -1112,10 +1141,10 @@ h3 {
 }
 
 .coverage-map {
-  --z1: #3fe03a;
-  --z2: #ffd23f;
-  --z3: #1fd1b0;
-  --z4: #3ea6f2;
+  --z1: #03e402;
+  --z2: #eed407;
+  --z3: #c1ee6a;
+  --z4: #6fa501;
   position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
@@ -1142,16 +1171,18 @@ h3 {
 .coverage-map-image {
   position: relative;
   min-width: 0;
-  padding: 14px;
+  padding: 18px;
   border-radius: 22px;
-  overflow: hidden;
-  border: 1px solid rgba(110, 180, 255, .22);
-  background:
-    radial-gradient(ellipse 60% 55% at 88% 38%, rgba(62, 166, 242, .34), transparent 70%),
-    repeating-linear-gradient(0deg, rgba(160, 210, 255, .045) 0 1px, transparent 1px 38px),
-    repeating-linear-gradient(90deg, rgba(160, 210, 255, .045) 0 1px, transparent 1px 38px),
-    #050b12;
-  box-shadow: inset 0 0 70px rgba(0, 0, 0, .5);
+  border: 1px solid var(--line);
+  background: radial-gradient(ellipse 70% 60% at 50% 45%, rgba(56, 212, 48, .16), rgba(4, 8, 5, .9) 75%);
+}
+
+.coverage-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 780px;
+  object-fit: contain;
 }
 
 .coverage-svg {
