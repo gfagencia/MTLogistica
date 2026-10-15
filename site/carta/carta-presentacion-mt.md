@@ -71,7 +71,7 @@ Queremos ayudarte a mejorar tu servicio de entrega, optimizar tu operacion y con
 ## Contacto
 
 **Logistica MT**  
-Email: contacto@logisticamt.com  
+Email: mtlogistica12@gmail.com  
 Telefono / WhatsApp: +54 11 2493-4095  
 Instagram: @logiistica  
 Horario de atencion: Lunes a Sabado  
